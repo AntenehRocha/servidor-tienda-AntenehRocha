@@ -15,13 +15,3 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN a2enmod rewrite
 
 WORKDIR /var/www/html
-
-# esto lo pongo para que en render me detecte la carpeta, ya que el docker-compose no lo lee
-
-COPY . /var/www/html/
-
-RUN composer install
-
-# aqui le doy los permisos
-
-RUN chown -R www-data:www-data /var/www/html
