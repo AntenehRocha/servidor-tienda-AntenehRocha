@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($passwordGuardada == $password) {
                 $_SESSION['usuario'] = $usuarioEncontrado['nombreUsuario'];
 
-                echo json_encode(['estado' => 'correcto', 'mensaje' => 'Has iniciado sesion correctamente']);
+                echo json_encode(['estado' => 'correcto', 'mensaje' => 'Has iniciado sesion correctamente', 'usuario' => $_SESSION['usuario']]);
                 exit;
             } else {
                 echo json_encode(['estado' => 'error', 'mensaje' => 'Credenciales incorrectas']);

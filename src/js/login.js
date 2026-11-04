@@ -72,14 +72,24 @@ document.addEventListener("DOMContentLoaded", () => {
           const botonRegistroLogin = document.querySelector(
             "#botonRegistroLogin",
           );
+          const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
+
           cerrarSesionBoton.classList.remove("d-none");
           botonRegistroLogin.classList.add("d-none");
+
+          bienvenidaHeader.innerHTML = `
+                <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+                <span class="small text-muted me-1">Usuario:</span>
+                <strong class="text-dark fw-bold">${datos.usuario}</strong>
+                </div>`;
         }
       });
   });
   const cerrarSesionBoton = document.querySelector("#cerrarSesionBoton");
   const botonRegistroLogin = document.querySelector("#botonRegistroLogin");
-  const avisosDOM = document.querySelector('#avisosDOM');
+  const avisosDOM = document.querySelector("#avisosDOM");
+  const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
+
   cerrarSesionBoton.addEventListener("click", () => {
     fetch("./../php/logout.php", {
       method: "POST",
@@ -90,7 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
           cerrarSesionBoton.classList.add("d-none");
           botonRegistroLogin.classList.remove("d-none");
           avisosDOM.innerHTML = `<div class="alert alert-warning" role="alert"> <p class= "mb-0"> Has cerrado sesion correctamente </p> </div>`;
-          avisosDOM.classList.remove('d-none');
+          bienvenidaHeader.innerHTML = "";
+          avisosDOM.classList.remove("d-none");
         }
       });
   });
