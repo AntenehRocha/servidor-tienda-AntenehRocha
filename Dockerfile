@@ -16,8 +16,10 @@ RUN a2enmod rewrite
 
 WORKDIR /var/www/html
 
-# Esto es para Render
-
 COPY src/ /var/www/html/
 
-COPY vendor/ /var/www/vendor/
+COPY composer.json /var/www/
+
+RUN cd /var/www/ && composer install
+
+RUN chown -R www-data:www-data /var/www/html
