@@ -20,10 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
       body: loginData,
     })
     .then((res) => res.json())
-    .then((mensaje) => {
-      if(mensaje) {
+    .then((datos) => {
+      if(datos.estado === 'error') {
         const alertContainer = document.querySelector('#alertContainer');
-        alertContainer.innerHTML = `<div class="alert alert-danger" role="alert"> ${mensaje} </div>`;
+        alertContainer.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
+      } else if (datos.estado === 'correcto') {
+        const alertContainer = document.querySelector('#alertContainer');
+        alertContainer.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
       }
     })
   });
