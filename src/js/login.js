@@ -67,10 +67,30 @@ document.addEventListener("DOMContentLoaded", () => {
           const InstanciaModal = bootstrap.Modal.getInstance(modalElement);
           InstanciaModal.hide();
 
-          const cerrarSesionBoton = document.querySelector("#cerrarSesionBoton");
-          const botonRegistroLogin = document.querySelector("#botonRegistroLogin");
+          const cerrarSesionBoton =
+            document.querySelector("#cerrarSesionBoton");
+          const botonRegistroLogin = document.querySelector(
+            "#botonRegistroLogin",
+          );
           cerrarSesionBoton.classList.remove("d-none");
           botonRegistroLogin.classList.add("d-none");
+        }
+      });
+  });
+  const cerrarSesionBoton = document.querySelector("#cerrarSesionBoton");
+  const botonRegistroLogin = document.querySelector("#botonRegistroLogin");
+  const avisosDOM = document.querySelector('#avisosDOM');
+  cerrarSesionBoton.addEventListener("click", () => {
+    fetch("./../php/logout.php", {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((datos) => {
+        if (datos.estado === "correcto") {
+          cerrarSesionBoton.classList.add("d-none");
+          botonRegistroLogin.classList.remove("d-none");
+          avisosDOM.innerHTML = `<div class="alert alert-warning" role="alert"> <p class= "mb-0"> Has cerrado sesion correctamente </p> </div>`;
+          avisosDOM.classList.remove('d-none');
         }
       });
   });
