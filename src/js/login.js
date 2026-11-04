@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('loginForm');
+  const regForm = document.getElementById('regForm');
 
-  loginForm.addEventListener('submit', (e) => {
+  regForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const usuario = document.getElementById('nombreInput').value;
@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Usuario introducido:', usuario);
     console.log('Contraseña introducida:', password);
 
-    let loginData =new FormData();
+    let regData =new FormData();
 
-    loginData.append('usuario', usuario);
-    loginData.append('password', password);
+    regData.append('usuario', usuario);
+    regData.append('password', password);
 
     fetch('./../php/validacion.php', {
       method: 'POST',
-      body: loginData,
+      body: regData,
     })
     .then((res) => res.json())
     .then((datos) => {
@@ -27,6 +27,38 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (datos.estado === 'correcto') {
         const alertContainer = document.querySelector('#alertContainer');
         alertContainer.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
+      }
+    })
+  });
+
+    const loginForm = document.getElementById('loginForm');
+
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const usuario = document.getElementById('nombreLogin').value;
+    const password = document.getElementById('contraseñaLogin').value;
+
+    console.log('Usuario introducido:', usuario);
+    console.log('Contraseña introducida:', password);
+
+    let logData =new FormData();
+
+    logData.append('usuario', usuario);
+    logData.append('password', password);
+
+    fetch('./../php/validacion.php', {
+      method: 'POST',
+      body: logData,
+    })
+    .then((res) => res.json())
+    .then((datos) => {
+      if(datos.estado === 'error') {
+        const alertContainerLogin = document.querySelector('#alertContainerLogin');
+        alertContainerLogin.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
+      } else if (datos.estado === 'correcto') {
+        const alertContainerLogin = document.querySelector('#alertContainerLogin');
+        alertContainerLogin.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
       }
     })
   });
