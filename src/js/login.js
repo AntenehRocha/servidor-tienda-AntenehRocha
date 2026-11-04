@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logData.append('usuario', usuario);
     logData.append('password', password);
 
-    fetch('./../php/validacion.php', {
+    fetch('./../php/login.php', {
       method: 'POST',
       body: logData,
     })
