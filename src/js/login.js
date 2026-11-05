@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonRegistroLogin = document.querySelector("#botonRegistroLogin");
   const avisosDOM = document.querySelector("#avisosDOM");
   const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
+  const tipoUsuarioHeader = document.querySelector("#tipoUsuario");
 
   fetch("./../php/comprobar_sesion.php")
     .then((res) => res.json())
@@ -12,6 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (datos.logueado) {
         cerrarSesionBoton.classList.remove("d-none");
         botonRegistroLogin.classList.add("d-none");
+
+        let adminMensaje = "";
+
+        if (datos.admin) {
+          adminMensaje = "Administrador";
+        } else {
+          adminMensaje = "Comprador";
+        }
+
+        tipoUsuarioHeader.innerHTML = `
+          <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+            <span class="small text-muted me-1">Rol:</span>
+            <strong class="text-dark fw-bold">${adminMensaje}</strong>
+          </div>`;
+
         bienvenidaHeader.innerHTML = `
           <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
             <span class="small text-muted me-1">Usuario:</span>
@@ -87,6 +103,20 @@ document.addEventListener("DOMContentLoaded", () => {
           cerrarSesionBoton.classList.remove("d-none");
           botonRegistroLogin.classList.add("d-none");
 
+          let adminMensaje = "";
+
+          if (datos.admin) {
+            adminMensaje = "Administrador";
+          } else {
+            adminMensaje = "Comprador";
+          }
+
+          tipoUsuarioHeader.innerHTML = `
+          <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+            <span class="small text-muted me-1">Rol:</span>
+            <strong class="text-dark fw-bold">${adminMensaje}</strong>
+          </div>`;
+
           bienvenidaHeader.innerHTML = `
                 <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
                 <span class="small text-muted me-1">Usuario:</span>
@@ -107,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
           botonRegistroLogin.classList.remove("d-none");
           avisosDOM.innerHTML = `<div class="alert alert-warning" role="alert"> <p class= "mb-0"> Has cerrado sesion correctamente </p> </div>`;
           bienvenidaHeader.innerHTML = "";
+          tipoUsuarioHeader.innerHTML = "";
           avisosDOM.classList.remove("d-none");
         }
       });

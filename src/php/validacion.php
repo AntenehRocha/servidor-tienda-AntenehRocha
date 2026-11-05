@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['estado' => 'error', 'mensaje' => 'Faltan campos por rellenar']);
         exit;
     }
-    
+
     $usuarioEncontrado = $coleccionUsuario->findOne(['nombreUsuario' => $usuario]);
     if ($usuarioEncontrado) {
         echo json_encode(['estado' => 'error', 'mensaje' => 'El usuario ya esta registrado']);
@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $coleccionUsuario->insertOne([
         'nombreUsuario' => $usuario,
-        'password' => $password
+        'password' => $password,
+        'admin' => false
     ]);
 
     echo json_encode(['estado' => 'correcto', 'mensaje' => 'Datos introducidos correctamente']);
