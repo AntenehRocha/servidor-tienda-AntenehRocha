@@ -22,3 +22,5 @@
 
  ### Para el login y el logout me decidí por usar las sesiones de PHP las cuales me facilitan que la pagina se recargue y el usuario continue logueado
  #### Y mediante el uso de ```` display: none; ````  estoy gestionando el DOM para que dependiendo de los estados de la pagina se muestre una información u otra
+
+ #### En esta web por defecto los usuarios son ````comprador```` esto permite que de manera intencionada por los administradores los usuarios que se prefieran, puedan ser ````admin````
