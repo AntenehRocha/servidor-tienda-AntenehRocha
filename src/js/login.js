@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const regForm = document.getElementById("regForm");
+  const loginForm = document.getElementById("loginForm");
+  const cerrarSesionBoton = document.querySelector("#cerrarSesionBoton");
+  const botonRegistroLogin = document.querySelector("#botonRegistroLogin");
+  const avisosDOM = document.querySelector("#avisosDOM");
+  const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
+
+  fetch("./../php/comprobar_sesion.php")
+    .then((res) => res.json())
+    .then((datos) => {
+      if (datos.logueado) {
+        cerrarSesionBoton.classList.remove("d-none");
+        botonRegistroLogin.classList.add("d-none");
+        bienvenidaHeader.innerHTML = `
+          <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+            <span class="small text-muted me-1">Usuario:</span>
+            <strong class="text-dark fw-bold">${datos.usuario}</strong>
+          </div>`;
+      }
+    });
 
   regForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -30,8 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
   });
-
-  const loginForm = document.getElementById("loginForm");
 
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -67,13 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const InstanciaModal = bootstrap.Modal.getInstance(modalElement);
           InstanciaModal.hide();
 
-          const cerrarSesionBoton =
-            document.querySelector("#cerrarSesionBoton");
-          const botonRegistroLogin = document.querySelector(
-            "#botonRegistroLogin",
-          );
-          const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
-
           cerrarSesionBoton.classList.remove("d-none");
           botonRegistroLogin.classList.add("d-none");
 
@@ -85,10 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
   });
-  const cerrarSesionBoton = document.querySelector("#cerrarSesionBoton");
-  const botonRegistroLogin = document.querySelector("#botonRegistroLogin");
-  const avisosDOM = document.querySelector("#avisosDOM");
-  const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
 
   cerrarSesionBoton.addEventListener("click", () => {
     fetch("./../php/logout.php", {

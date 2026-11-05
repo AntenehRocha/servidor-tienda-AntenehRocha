@@ -17,10 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['estado' => 'error', 'mensaje' => 'Faltan campos por rellenar']);
         exit;
     } else {
-        $coleccionUsuario->insertOne([
-            'nombreUsuario' => $usuario,
-            'password' => $password
-        ]);
+        $usuarioEncontrado = $coleccionUsuario->findOne(['nombreUsuario' => $usuario]);
+        if ($usuarioEncontrado['nombreUsuario'] == $usuario) {
+            echo json_encode(['estado' => 'error', 'mensaje' => 'El usuario ya esta registrado']);
+        } else {
+            $coleccionUsuario->insertOne([
+                'nombreUsuario' => $usuario,
+                'password' => $password
+            ]);
+        }
         echo json_encode(['estado' => 'correcto', 'mensaje' => 'Datos introducidos correctamente']);
         exit;
     }
