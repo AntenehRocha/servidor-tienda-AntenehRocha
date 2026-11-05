@@ -13,6 +13,12 @@
 ---
 
 ### Algo interesante de este proyecto es el uso de Bootstrap
- <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/3840px-Bootstrap_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Descripción" style="width: 10%;">
+#### Lo uso inyectandolo desde el CDN
+ <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/3840px-Bootstrap_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Descripción" style="width: 2%;">
 
-### Lo uso inyectandolo desde el CDN
+ <br></br>
+
+---
+
+ ### Para el login y el logout me decidí por usar las sesiones de PHP las cuales me facilitan que la pagina se recargue y el usuario continue logueado
+ #### Y mediante el uso de ```` display: none; ````  estoy gestionando el DOM para que dependiendo de los estados de la pagina se muestre una información u otra
