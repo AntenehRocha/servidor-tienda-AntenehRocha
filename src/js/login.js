@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const avisosDOM = document.querySelector("#avisosDOM");
   const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
   const tipoUsuarioHeader = document.querySelector("#tipoUsuario");
+  const formularioAdmin = document.querySelector("#formularioAdmin");
 
   fetch("./../php/comprobar_sesion.php")
     .then((res) => res.json())
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (datos.admin) {
           adminMensaje = "Administrador";
+          formularioAdmin.classList.remove("d-none");
         } else {
           adminMensaje = "Comprador";
         }
@@ -107,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (datos.admin) {
             adminMensaje = "Administrador";
+            formularioAdmin.classList.remove("d-none");
           } else {
             adminMensaje = "Comprador";
           }
@@ -139,6 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
           bienvenidaHeader.innerHTML = "";
           tipoUsuarioHeader.innerHTML = "";
           avisosDOM.classList.remove("d-none");
+          location.reload();
+          formularioAdmin.add('d-none');
         }
       });
   });
