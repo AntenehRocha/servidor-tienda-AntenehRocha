@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h5 class="card-title fw-bold">${cada_producto.nombre}</h5>
                 <p class="card-text text-muted small">${cada_producto.descripcion}</p>
                 <div class="mt-auto">
-                    <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}"> Ver detalles </button>
+                    <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}"> Ver detalles </button>
                 </div>
               </div>
             </article>
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const nombre = document.querySelector("#nombreProducto").value;
       const imagen = document.querySelector("#ImagenProducto").value;
       const descripcion = document.querySelector("#DescripcionProducto").value;
+      const stock = document.querySelector("#stockProducto").value;
 
       console.log("Creando producto:", { nombre, imagen, descripcion });
 
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nuevoProducto.append("nombre", nombre);
       nuevoProducto.append("imagen", imagen);
       nuevoProducto.append("descripcion", descripcion);
+      nuevoProducto.append("stock", stock);
 
       fetch("./../php/insertar-productos.php", {
         method: "POST",
@@ -66,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <h5 class="card-title fw-bold">${cada_producto.nombre}</h5>
                       <p class="card-text text-muted small">${cada_producto.descripcion}</p>
                       <div class="mt-auto">
-                        <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}"> Ver detalles </button>
+                        <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}"> Ver detalles </button>
                       </div>
                     </div>
                   </article>
@@ -89,11 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const nombre = botonClicado.getAttribute("data-nombre");
         const imagen = botonClicado.getAttribute("data-imagen");
         const desc = botonClicado.getAttribute("data-desc");
+        const stock = botonClicado.getAttribute("data-stock");
 
         modalProducto.querySelector("#modalProductoTitulo").textContent =
           nombre;
         modalProducto.querySelector("#modalProductoImagen").src = imagen;
         modalProducto.querySelector("#modalProductoDesc").textContent = desc;
+        modalProducto.querySelector("#modalProductoStock").textContent = stock;
       });
     }
   }

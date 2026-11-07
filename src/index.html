@@ -138,29 +138,32 @@
     </section>
 
     <div class="modal fade" id="tablaProducto" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 shadow">
-          <div class="modal-header bg-light">
-            <h5 class="modal-title fw-bold" id="modalProductoTitulo">Cargando...</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title fw-bold" id="modalProductoTitulo">Cargando...</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body p-4">
+        <div class="row align-items-center">
+          <div class="col-md-5 text-center mb-3 mb-md-0">
+            <img src="" id="modalProductoImagen" class="img-fluid rounded" alt="Imagen del producto"
+              style="max-height: 250px; object-fit: contain;" />
           </div>
-          <div class="modal-body p-4">
-            <div class="row align-items-center">
-              <div class="col-md-5 text-center mb-3 mb-md-0">
-                <img src="" id="modalProductoImagen" class="img-fluid rounded" alt="Imagen del producto"
-                  style="max-height: 250px; object-fit: contain;" />
-              </div>
-              <div class="col-md-7">
-                <p id="modalProductoDesc" class="text-muted"></p>
-                <div class="d-flex justify-content-end mt-4">
-                  <button class="btn btn-success fw-semibold">Añadir al carrito</button>
-                </div>
-              </div>
+          <div class="col-md-7">
+            <p id="modalProductoDesc" class="text-muted"></p>
+            <div class="mb-3">
+              <span class="badge bg-primary fs-6 fw-normal">Stock disponible: <strong id="modalProductoStock">0</strong></span>
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+              <button class="btn btn-success fw-semibold">Añadir al carrito</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
     <div class="modal fade" id="modalAdmin" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -179,6 +182,10 @@
               <div class="mb-3">
                 <label for="ImagenProducto" class="form-label fw-medium">URL de la imagen</label>
                 <input type="text" class="form-control" id="ImagenProducto" required />
+              </div>
+              <div class="mb-3">
+                <label for="stockProducto" class="form-label fw-medium">Stock del producto</label>
+                <input type="text" class="form-control" id="stockProducto" required />
               </div>
 
               <div class="mb-3">

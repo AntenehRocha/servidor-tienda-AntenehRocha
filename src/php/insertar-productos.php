@@ -20,11 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombreProducto = $_POST['nombre'];
     $imagenProducto = $_POST['imagen'];
     $descripcionProducto = $_POST['descripcion'];
+    $stockProducto = $_POST['stock'];
 
     $coleccionInventario->insertOne([
         'nombre' => $nombreProducto,
         'imagen' => $imagenProducto,
-        'descripcion' => $descripcionProducto
+        'descripcion' => $descripcionProducto,
+        'stock' => (int)$stockProducto
     ]);
     
     echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto creado satisfactoriamente', 'inventario' => $coleccionInventario->find()->toArray()]);
