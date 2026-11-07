@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $coleccionUsuario->insertOne([
         'nombreUsuario' => $usuario,
         'password' => $password,
-        'admin' => false
+        'admin' => false,
+        'bolsa' => []
     ]);
 
     echo json_encode(['estado' => 'correcto', 'mensaje' => 'Datos introducidos correctamente']);

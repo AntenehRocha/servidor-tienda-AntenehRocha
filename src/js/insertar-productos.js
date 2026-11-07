@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h5 class="card-title fw-bold">${cada_producto.nombre}</h5>
                 <p class="card-text text-muted small">${cada_producto.descripcion}</p>
                 <div class="mt-auto">
-                    <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}"> Ver detalles </button>
+                    <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-id="${cada_producto._id}"> Ver detalles </button>
                 </div>
               </div>
             </article>
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <h5 class="card-title fw-bold">${cada_producto.nombre}</h5>
                       <p class="card-text text-muted small">${cada_producto.descripcion}</p>
                       <div class="mt-auto">
-                        <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}"> Ver detalles </button>
+                        <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-id="${cada_producto._id}"> Ver detalles </button>
                       </div>
                     </div>
                   </article>
@@ -92,12 +92,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const imagen = botonClicado.getAttribute("data-imagen");
         const desc = botonClicado.getAttribute("data-desc");
         const stock = botonClicado.getAttribute("data-stock");
+        const id = botonClicado.getAttribute("data-id");
 
         modalProducto.querySelector("#modalProductoTitulo").textContent =
           nombre;
         modalProducto.querySelector("#modalProductoImagen").src = imagen;
         modalProducto.querySelector("#modalProductoDesc").textContent = desc;
         modalProducto.querySelector("#modalProductoStock").textContent = stock;
+
+        const btnAgregar = modalProducto.querySelector("#btnAgregarBolsa");
+        if (btnAgregar) {
+          btnAgregar.setAttribute("data-id", id);
+        }
       });
     }
   }

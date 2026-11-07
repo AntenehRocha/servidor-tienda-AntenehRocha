@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
   const tipoUsuarioHeader = document.querySelector("#tipoUsuario");
   const panelAdminBoton = document.querySelector("#mostrarPanelAdmin");
+  const botonBolsa = document.querySelector("#botonBolsa");
 
   fetch("./../php/comprobar_sesion.php")
     .then((res) => res.json())
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (datos.logueado) {
         cerrarSesionBoton.classList.remove("d-none");
         botonRegistroLogin.classList.add("d-none");
+        botonBolsa.classList.remove("d-none");
 
         let adminMensaje = "";
 
@@ -81,10 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then((datos) => {
         if (datos.estado === "error") {
-          const alertContainerLogin = document.querySelector("#alertContainerLogin");
+          const alertContainerLogin = document.querySelector(
+            "#alertContainerLogin",
+          );
           alertContainerLogin.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
         } else if (datos.estado === "correcto") {
-          const alertContainerLogin = document.querySelector("#alertContainerLogin");
+          const alertContainerLogin = document.querySelector(
+            "#alertContainerLogin",
+          );
           alertContainerLogin.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
 
           const modalElement = document.getElementById("loginModal");
@@ -93,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           cerrarSesionBoton.classList.remove("d-none");
           botonRegistroLogin.classList.add("d-none");
+          botonBolsa.classList.remove("d-none");
 
           let adminMensaje = "";
 
@@ -131,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
           bienvenidaHeader.innerHTML = "";
           tipoUsuarioHeader.innerHTML = "";
           avisosDOM.classList.remove("d-none");
+          botonBolsa.classList.add("d-none");
           panelAdminBoton.classList.add("d-none");
           location.reload();
         }

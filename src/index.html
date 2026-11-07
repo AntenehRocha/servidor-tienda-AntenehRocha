@@ -43,6 +43,13 @@
           data-bs-target="#modalAdmin">
           Panel Admin
         </button>
+        <button class="btn btn-primary position-relative ms-2 d-none" id="botonBolsa" data-bs-toggle="modal"
+          data-bs-target="#modalBolsa">
+          Bolsa
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="badgeBolsa">
+            0
+          </span>
+        </button>
       </div>
     </nav>
   </header>
@@ -138,32 +145,37 @@
     </section>
 
     <div class="modal fade" id="tablaProducto" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content border-0 shadow">
-      <div class="modal-header bg-light">
-        <h5 class="modal-title fw-bold" id="modalProductoTitulo">Cargando...</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body p-4">
-        <div class="row align-items-center">
-          <div class="col-md-5 text-center mb-3 mb-md-0">
-            <img src="" id="modalProductoImagen" class="img-fluid rounded" alt="Imagen del producto"
-              style="max-height: 250px; object-fit: contain;" />
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow">
+          <div class="modal-header bg-light">
+            <h5 class="modal-title fw-bold" id="modalProductoTitulo">
+              Cargando...
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
           </div>
-          <div class="col-md-7">
-            <p id="modalProductoDesc" class="text-muted"></p>
-            <div class="mb-3">
-              <span class="badge bg-primary fs-6 fw-normal">Stock disponible: <strong id="modalProductoStock">0</strong></span>
-            </div>
-            <div class="d-flex justify-content-end mt-4">
-              <button class="btn btn-success fw-semibold">Añadir al carrito</button>
+          <div class="modal-body p-4">
+            <div class="row align-items-center">
+              <div class="col-md-5 text-center mb-3 mb-md-0">
+                <img src="" id="modalProductoImagen" class="img-fluid rounded" alt="Imagen del producto"
+                  style="max-height: 250px; object-fit: contain" />
+              </div>
+              <div class="col-md-7">
+                <p id="modalProductoDesc" class="text-muted"></p>
+                <div class="mb-3">
+                  <span class="badge bg-primary fs-6 fw-normal">Stock disponible:
+                    <strong id="modalProductoStock">0</strong></span>
+                </div>
+                <div class="d-flex justify-content-end mt-4">
+                  <button class="btn btn-success fw-semibold" id="btnAgregarBolsa">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
     <div class="modal fade" id="modalAdmin" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -185,7 +197,7 @@
               </div>
               <div class="mb-3">
                 <label for="stockProducto" class="form-label fw-medium">Stock del producto</label>
-                <input type="text" class="form-control" id="stockProducto" required />
+                <input type="number" class="form-control" id="stockProducto" required />
               </div>
 
               <div class="mb-3">
@@ -201,6 +213,29 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="modalBolsa" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow">
+          <div class="modal-header bg-light">
+            <h5 class="modal-title fw-bold">Tu Bolsa de la Compra</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body p-4">
+            <div id="contenedorBolsa" class="list-group mb-3">
+            </div>
+            <div class="d-flex justify-content-between align-items-center border-top pt-3">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Seguir comprando
+              </button>
+              <button type="button" class="btn btn-success fw-semibold" id="btnComprar">
+                Tramitar Pedido
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -212,6 +247,7 @@
   <script type="module" src="./js/login.js"></script>
   <script type="module" src="./js/insertar-productos.js"></script>
   <script type="module" src="./js/seed-inventario.js"></script>
+  <script type="module" src="./js/bolsa.js"></script>
 </body>
 
 </html>
