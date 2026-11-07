@@ -6,6 +6,11 @@ require_once __DIR__ . '/conexion.php';
 
 session_start();
 
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    echo json_encode(['inventario' => $coleccionInventario->find()->toArray()]);
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
         echo json_encode(['estado' => 'error', 'mensaje' => 'No tienes permisos de administrador']);
@@ -16,13 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagenProducto = $_POST['imagen'];
     $descripcionProducto = $_POST['descripcion'];
 
-    echo json_encode(['nombreProducto' => $nombreProducto, 'imagenProducto' => $imagenProducto, 'descripcionProducto' => $descripcionProducto]);
-
-    $coleccionInventario->inserOne([
+    $coleccionInventario->insertOne([
         'nombre' => $nombreProducto,
         'imagen' => $imagenProducto,
         'descripcion' => $descripcionProducto
     ]);
+    
     echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto creado satisfactoriamente', 'inventario' => $coleccionInventario->find()->toArray()]);
     exit;
 }
