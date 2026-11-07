@@ -11,12 +11,16 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-light border-bottom">
-      <div class="container">
+<header>
+    <nav class="navbar navbar-expand-lg bg-light border-bottom my-2">
+      <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="./index.html">Tienda Informatica</a>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuNavegacion">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
               <a class="nav-link active" href="./paginas/tienda.html">Tienda</a>
@@ -25,31 +29,30 @@
               <a class="nav-link" href="./paginas/contacto.html">Contacto</a>
             </li>
           </ul>
+
+          <button class="btn btn-outline-primary mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#RegModal" id="botonRegistroLogin">
+            Registrarse / Login
+          </button>
+
+          <div id="tipoUsuario" class="mt-2 mt-lg-0"></div>
+          <div id="bienvenidaHeader" class="mt-2 mt-lg-0"></div>
+
+          <button type="button" class="btn btn-outline-danger d-none mt-2 mt-lg-0" id="cerrarSesionBoton">
+            Cerrar sesion
+          </button>
+
+          <button class="btn btn-outline-success ms-lg-2 mt-2 mt-lg-0 d-none" id="mostrarPanelAdmin" data-bs-toggle="modal" data-bs-target="#modalAdmin">
+            Panel Admin
+          </button>
+          
+          <button class="btn btn-primary position-relative ms-lg-2 mt-2 mt-lg-0 d-none" id="botonBolsa" data-bs-toggle="modal" data-bs-target="#modalBolsa">
+            Bolsa
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="badgeBolsa">
+              0
+            </span>
+          </button>
         </div>
-
-        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#RegModal"
-          id="botonRegistroLogin">
-          Registrarse / Login
-        </button>
-
-        <div id="tipoUsuario"></div>
-        <div id="bienvenidaHeader"></div>
-
-        <button type="button" class="btn btn-outline-danger d-none" id="cerrarSesionBoton">
-          Cerrar sesion
-        </button>
-
-        <button class="btn btn-outline-success ms-2 d-none" id="mostrarPanelAdmin" data-bs-toggle="modal"
-          data-bs-target="#modalAdmin">
-          Panel Admin
-        </button>
-        <button class="btn btn-primary position-relative ms-2 d-none" id="botonBolsa" data-bs-toggle="modal"
-          data-bs-target="#modalBolsa">
-          Bolsa
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="badgeBolsa">
-            0
-          </span>
-        </button>
+        
       </div>
     </nav>
   </header>
