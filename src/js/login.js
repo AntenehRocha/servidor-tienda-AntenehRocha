@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const avisosDOM = document.querySelector("#avisosDOM");
   const bienvenidaHeader = document.querySelector("#bienvenidaHeader");
   const tipoUsuarioHeader = document.querySelector("#tipoUsuario");
-  const formularioAdmin = document.querySelector("#formularioAdmin");
+  const panelAdminBoton = document.querySelector("#mostrarPanelAdmin");
 
   fetch("./../php/comprobar_sesion.php")
     .then((res) => res.json())
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (datos.admin) {
           adminMensaje = "Administrador";
-          formularioAdmin.classList.remove("d-none");
+          panelAdminBoton.classList.remove("d-none");
         } else {
           adminMensaje = "Comprador";
         }
@@ -44,11 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = document.getElementById("nombreInput").value;
     const password = document.getElementById("contraseñaInput").value;
 
-    console.log("Usuario introducido:", usuario);
-    console.log("Contraseña introducida:", password);
-
     let regData = new FormData();
-
     regData.append("usuario", usuario);
     regData.append("password", password);
 
@@ -74,11 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = document.getElementById("nombreLogin").value;
     const password = document.getElementById("contraseñaLogin").value;
 
-    console.log("Usuario introducido:", usuario);
-    console.log("Contraseña introducida:", password);
-
     let logData = new FormData();
-
     logData.append("usuario", usuario);
     logData.append("password", password);
 
@@ -89,15 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then((datos) => {
         if (datos.estado === "error") {
-          const alertContainerLogin = document.querySelector(
-            "#alertContainerLogin",
-          );
+          const alertContainerLogin = document.querySelector("#alertContainerLogin");
           alertContainerLogin.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
         } else if (datos.estado === "correcto") {
-          const alertContainerLogin = document.querySelector(
-            "#alertContainerLogin",
-          );
+          const alertContainerLogin = document.querySelector("#alertContainerLogin");
           alertContainerLogin.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
+
           const modalElement = document.getElementById("loginModal");
           const InstanciaModal = bootstrap.Modal.getInstance(modalElement);
           InstanciaModal.hide();
@@ -109,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (datos.admin) {
             adminMensaje = "Administrador";
-            formularioAdmin.classList.remove("d-none");
+            panelAdminBoton.classList.remove("d-none");
           } else {
             adminMensaje = "Comprador";
           }
@@ -142,8 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
           bienvenidaHeader.innerHTML = "";
           tipoUsuarioHeader.innerHTML = "";
           avisosDOM.classList.remove("d-none");
+          panelAdminBoton.classList.add("d-none");
           location.reload();
-          formularioAdmin.add('d-none');
         }
       });
   });
