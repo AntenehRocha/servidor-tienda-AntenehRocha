@@ -9,3 +9,5 @@ $uri = 'mongodb+srv://antenehro_db_user:antenehrocha@cluster0.rfzgpbk.mongodb.ne
 $client = new MongoDB\Client($uri);
 
 $coleccionUsuario = $client->selectDatabase('servidor-tienda-AntenehRocha')->selectCollection('usuarios');
+
+$coleccionInventario = $client->selectDatabase('servidor-tienda-AntenehRocha')->selectCollection('inventario');

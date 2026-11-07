@@ -1,6 +1,9 @@
 <?php
 
 header('Content-Type: application/json; charset=utf-8');
+
+require_once __DIR__ . '/conexion.php';
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -13,6 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagenProducto = $_POST['imagen'];
     $descripcionProducto = $_POST['descripcion'];
 
-    echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto creado satisfactoriamente']);
+    echo json_encode(['nombreProducto' => $nombreProducto, 'imagenProducto' => $imagenProducto, 'descripcionProducto' => $descripcionProducto]);
+
+    $coleccionInventario->inserOne([
+        'nombre' => $nombreProducto,
+        'imagen' => $imagenProducto,
+        'descripcion' => $descripcionProducto
+    ]);
+    echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto creado satisfactoriamente', 'inventario' => $coleccionInventario->find()->toArray()]);
     exit;
 }
