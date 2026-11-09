@@ -1,258 +1,441 @@
 <!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" type="text/css" />
+    <title>Página de inicio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style/style.css" type="text/css" />
-  <title>Página de inicio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-</head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg bg-light border-bottom shadow-sm sticky-top"
+      >
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="./index.html"
+            >Tienda Informatica</a
+          >
 
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg bg-light border-bottom shadow-sm sticky-top">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="./index.html">Tienda Informatica</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menuNavegacion">
-          <ul class="navbar-nav align-items-lg-center gap-lg-2 me-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="./paginas/tienda.html">Tienda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./paginas/contacto.html">Contacto</a>
-            </li>
-          </ul>
-
-          <div class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2 py-2 py-lg-0">
-          <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#RegModal" id="botonRegistroLogin">
-            Registrarse / Login
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuNavegacion"
+          >
+            <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div id="tipoUsuario"></div>
-          <div id="bienvenidaHeader"></div>
-
-          <button type="button" class="btn btn-outline-danger d-none" id="cerrarSesionBoton">
-            Cerrar sesion
-          </button>
-
-          <button class="btn btn-outline-success d-none" id="mostrarPanelAdmin" data-bs-toggle="modal" data-bs-target="#modalAdmin">
-            Panel Admin
-          </button>
-
-          <button class="btn btn-primary position-relative d-none" id="botonBolsa" data-bs-toggle="modal" data-bs-target="#modalBolsa">
-            Bolsa
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="badgeBolsa">
-              0
-            </span>
-          </button>
-          </div>
-        </div>
-        
-      </div>
-    </nav>
-  </header>
-
-  <section class="contenedor-login">
-    <div class="modal fade" id="RegModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Registrarse</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-
-          <div class="modal-body">
-            <ul class="nav nav-pills justify-content-center mb-4">
+          <div class="collapse navbar-collapse" id="menuNavegacion">
+            <ul class="navbar-nav align-items-lg-center gap-lg-2 me-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Registrarse</a>
+                <a class="nav-link active" href="./paginas/tienda.html"
+                  >Tienda</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
+                <a class="nav-link" href="./paginas/contacto.html">Contacto</a>
               </li>
             </ul>
-            <div id="alertContainer"></div>
-            <form id="regForm" novalidate>
-              <div class="mb-3">
-                <label class="form-label">Usuario</label>
-                <input type="text" class="form-control" name="usuario" required id="nombreInput" />
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="password" required id="contraseñaInput" />
-              </div>
-              <button type="submit" class="btn btn-primary w-100" id="regButton">
-                Crear cuenta
+
+            <div
+              class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2 py-2 py-lg-0"
+            >
+              <button
+                class="btn btn-outline-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#RegModal"
+                id="botonRegistroLogin"
+              >
+                Registrarse / Login
               </button>
-            </form>
+
+              <div id="tipoUsuario"></div>
+              <div id="bienvenidaHeader"></div>
+
+              <button
+                type="button"
+                class="btn btn-outline-danger d-none"
+                id="cerrarSesionBoton"
+              >
+                Cerrar sesion
+              </button>
+
+              <button
+                class="btn btn-outline-success d-none"
+                id="mostrarPanelAdmin"
+                data-bs-toggle="modal"
+                data-bs-target="#modalAdmin"
+              >
+                Panel Admin
+              </button>
+
+              <button
+                class="btn btn-primary position-relative d-none"
+                id="botonBolsa"
+                data-bs-toggle="modal"
+                data-bs-target="#modalBolsa"
+              >
+                Bolsa
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  id="badgeBolsa"
+                >
+                  0
+                </span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Iniciar Sesión</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
+      </nav>
+    </header>
 
-          <div class="modal-body">
-            <ul class="nav nav-pills justify-content-center mb-4">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal"
-                  data-bs-target="#RegModal">Registrarse</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
-              </li>
-            </ul>
-            <div id="alertContainerLogin"></div>
-            <form id="loginForm" novalidate>
-              <div class="mb-3">
-                <label class="form-label">Usuario</label>
-                <input type="text" class="form-control" name="usuario" required id="nombreLogin" />
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="password" required id="contraseñaLogin" />
-              </div>
-              <button type="submit" class="btn btn-primary w-100" id="logButton">
-                Entrar
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="container mt-4 text-center" id="avisosDOM"></section>
+    <section class="contenedor-login">
+      <div class="modal fade" id="RegModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registrarse</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
 
-  <main class="container py-5">
-    <section class="text-center mb-5 p-4 p-md-5 bg-light border rounded-4 shadow-sm">
-      <h1 class="display-4 fw-bold">Macbook Pro PROLED XDR</h1>
-      <img
-        src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_187711318?x=697&y=523&format=webp&quality=60&sp=yes&strip=yes&trim=yes&ex=697&ey=523&align=center&resizesource&unsharp=0.5x0.5"
-        class="img-fluid rounded-3 my-3" style="max-height: 350px; object-fit: contain" alt="Macbook Pro" />
-    </section>
-
-    <section class="mb-5">
-      <div class="display-6 fw-bold mb-4 pb-2 border-bottom text-center text-md-start">
-        Productos en stock
-      </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4" id="catalogoDinamico"></div>
-    </section>
-
-    <div class="modal fade" id="tablaProducto" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 shadow">
-          <div class="modal-header bg-light">
-            <h5 class="modal-title fw-bold" id="modalProductoTitulo">
-              Cargando...
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body p-4">
-            <div class="row align-items-center">
-              <div class="col-md-5 text-center mb-3 mb-md-0">
-                <img src="" id="modalProductoImagen" class="img-fluid rounded" alt="Imagen del producto"
-                  style="max-height: 250px; object-fit: contain" />
-              </div>
-              <div class="col-md-7">
-                <p id="modalProductoDesc" class="text-muted"></p>
+            <div class="modal-body">
+              <ul class="nav nav-pills justify-content-center mb-4">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Registrarse</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                    >Iniciar Sesion</a
+                  >
+                </li>
+              </ul>
+              <div id="alertContainer"></div>
+              <form id="regForm" novalidate>
                 <div class="mb-3">
-                  <span class="badge bg-primary fs-6 fw-normal">Stock disponible:
-                    <strong id="modalProductoStock">0</strong></span>
+                  <label class="form-label">Usuario</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="usuario"
+                    required
+                    id="nombreInput"
+                  />
                 </div>
-                <div class="d-flex justify-content-center justify-content-md-end mt-4">
-                  <button class="btn btn-success fw-semibold" id="btnAgregarBolsa">
-                    Añadir al carrito
-                  </button>
+                <div class="mb-3">
+                  <label class="form-label">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    required
+                    id="contraseñaInput"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100"
+                  id="regButton"
+                >
+                  Crear cuenta
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Iniciar Sesión</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <ul class="nav nav-pills justify-content-center mb-4">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    aria-current="page"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#RegModal"
+                    >Registrarse</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                    >Iniciar Sesion</a
+                  >
+                </li>
+              </ul>
+              <div id="alertContainerLogin"></div>
+              <form id="loginForm" novalidate>
+                <div class="mb-3">
+                  <label class="form-label">Usuario</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="usuario"
+                    required
+                    id="nombreLogin"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    required
+                    id="contraseñaLogin"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100"
+                  id="logButton"
+                >
+                  Entrar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container mt-4 text-center" id="avisosDOM"></section>
+
+    <main class="container py-5">
+      <section
+        class="text-center mb-5 p-4 p-md-5 bg-light border rounded-4 shadow-sm"
+      >
+        <h1 class="display-4 fw-bold">Macbook Pro PROLED XDR</h1>
+        <img
+          src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_187711318?x=697&y=523&format=webp&quality=60&sp=yes&strip=yes&trim=yes&ex=697&ey=523&align=center&resizesource&unsharp=0.5x0.5"
+          class="img-fluid rounded-3 my-3"
+          style="max-height: 350px; object-fit: contain"
+          alt="Macbook Pro"
+        />
+      </section>
+
+      <section class="mb-5">
+        <div
+          class="display-6 fw-bold mb-4 pb-2 border-bottom text-center text-md-start"
+        >
+          Productos en stock
+        </div>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4"
+          id="catalogoDinamico"
+        ></div>
+      </section>
+
+      <div
+        class="modal fade"
+        id="tablaProducto"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-light">
+              <h5 class="modal-title fw-bold" id="modalProductoTitulo">
+                Cargando...
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
+            <div class="modal-body p-4">
+              <div class="row align-items-center">
+                <div class="col-md-5 text-center mb-3 mb-md-0">
+                  <img
+                    src=""
+                    id="modalProductoImagen"
+                    class="img-fluid rounded"
+                    alt="Imagen del producto"
+                    style="max-height: 250px; object-fit: contain"
+                  />
+                </div>
+                <div class="col-md-7">
+                  <p id="modalProductoDesc" class="text-muted"></p>
+                  <div class="mb-3">
+                    <span class="badge bg-primary fs-6 fw-normal"
+                      >Stock disponible:
+                      <strong id="modalProductoStock">0</strong></span
+                    >
+                  </div>
+                  <div
+                    class="d-flex justify-content-center justify-content-md-end mt-4"
+                  >
+                    <button
+                      class="btn btn-success fw-semibold"
+                      id="btnAgregarBolsa"
+                    >
+                      Añadir al carrito
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="modalAdmin" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow">
-          <div class="modal-header bg-light">
-            <h5 class="modal-title fw-bold">Panel Admin</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
+      <div class="modal fade" id="modalAdmin" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-light">
+              <h5 class="modal-title fw-bold">Panel Admin</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
 
-          <div class="modal-body p-4">
-            <form id="ProductoForm">
-              <div class="mb-3">
-                <label for="nombreProducto" class="form-label fw-medium">Nombre producto</label>
-                <input type="text" class="form-control" id="nombreProducto" required />
-              </div>
-              <div class="mb-3">
-                <label for="ImagenProducto" class="form-label fw-medium">URL de la imagen</label>
-                <input type="text" class="form-control" id="ImagenProducto" required />
-              </div>
-              <div class="mb-3">
-                <label for="stockProducto" class="form-label fw-medium">Stock del producto</label>
-                <input type="number" class="form-control" id="stockProducto" required />
-              </div>
+            <div class="modal-body p-4">
+              <form id="ProductoForm">
+                <div class="mb-3">
+                  <label for="nombreProducto" class="form-label fw-medium"
+                    >Nombre producto</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombreProducto"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="ImagenProducto" class="form-label fw-medium"
+                    >URL de la imagen</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="ImagenProducto"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="stockProducto" class="form-label fw-medium"
+                    >Stock del producto</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="stockProducto"
+                    required
+                  />
+                </div>
 
-              <div class="mb-3">
-                <label for="DescripcionProducto" class="form-label fw-medium">Descripción producto</label>
-                <textarea class="form-control" id="DescripcionProducto" rows="3" required></textarea>
-              </div>
+                <div class="mb-3">
+                  <label for="DescripcionProducto" class="form-label fw-medium"
+                    >Descripción producto</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="DescripcionProducto"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
 
-              <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
-                Crear producto
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100 py-2 fw-semibold"
+                >
+                  Crear producto
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="modalBolsa" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 shadow">
-          <div class="modal-header bg-light">
-            <h5 class="modal-title fw-bold">Tu Bolsa de la Compra</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body p-4">
-            <div id="contenedorBolsa" class="list-group mb-3">
+      <div class="modal fade" id="modalBolsa" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-light">
+              <h5 class="modal-title fw-bold">Tu Bolsa de la Compra</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
             </div>
-            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 border-top pt-3">
-              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                Seguir comprando
-              </button>
-              <button type="button" class="btn btn-success fw-semibold" id="btnComprar">
-                Tramitar Pedido
-              </button>
+            <div class="modal-body p-4">
+              <div id="contenedorBolsa" class="list-group mb-3"></div>
+              <div
+                class="d-flex flex-wrap justify-content-between align-items-center gap-2 border-top pt-3"
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Seguir comprando
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-success fw-semibold"
+                  id="btnComprar"
+                >
+                  Tramitar Pedido
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-    crossorigin="anonymous"></script>
-  <script type="module" src="./js/login.js"></script>
-  <script type="module" src="./js/insertar-productos.js"></script>
-  <script type="module" src="./js/seed-inventario.js"></script>
-  <script type="module" src="./js/bolsa.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/insertar-productos.js"></script>
+    <script type="module" src="./js/seed-inventario.js"></script>
+    <script type="module" src="./js/bolsa.js"></script>
+  </body>
 </html>

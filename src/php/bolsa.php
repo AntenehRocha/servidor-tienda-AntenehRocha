@@ -8,7 +8,18 @@ use MongoDB\BSON\ObjectId;
 
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "GET") {
+
+    $usuario = $coleccionUsuario->findOne([
+        '_id' => new ObjectId($_SESSION['usuarioId'])
+    ]);
+
+    $bolsa = $usuario['bolsa'];
+    echo json_encode(['estado' => 'correcto', 'bolsa' => $bolsa]);
+    exit;
+}
+
+if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
     $idProducto = $_POST['id'];
 
     $producto = $coleccionInventario->findOne([
@@ -22,7 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ['$push' => ['bolsa' => [
             '_id' => new ObjectId(),
             'productoId' => $producto['_id'],
-            'nombre' => $producto['nombre']
+            'nombre' => $producto['nombre'],
+            'imagen' => $producto['imagen'],
+            'descripcion' => $producto['descripcion'],
+            'stock' => $producto['stock'],
         ]]]
     );
 
@@ -32,4 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['estado' => 'error', 'mensaje' => 'No se pudo añadir el producto']);
     }
     exit;
-}
+} else {
+    echo json_encode(['estado' => 'error', 'mensaje' => 'Usuario no autenticado']);
+    exit;
+};
