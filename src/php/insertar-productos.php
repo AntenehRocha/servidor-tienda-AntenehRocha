@@ -7,7 +7,29 @@ require_once __DIR__ . '/conexion.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
-    echo json_encode(['inventario' => $coleccionInventario->find()->toArray()]);
+    $inventario = $coleccionInventario->find()->toArray();
+
+    // json_encode(['inventario' => $coleccionInventario->find()->toArray()]);
+
+    $arrayInventario = [];
+
+    foreach ($inventario as $cada_producto) {
+        $nombre = $cada_producto['nombre'];
+        $descripcion = $cada_producto['descripcion'];
+        $imagen = $cada_producto['imagen'];
+        $stock = $cada_producto['stock'];
+        $id = (string) $cada_producto['_id'];
+
+        $arrayInventario[] = [
+            '_id' => $id,
+            'nombre' => $nombre,
+            'imagen' => $imagen,
+            'descripcion' => $descripcion,
+            'stock' => $stock
+        ];
+    };
+
+    echo json_encode(['inventario' => $arrayInventario]);
     exit;
 }
 
@@ -28,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         'descripcion' => $descripcionProducto,
         'stock' => (int)$stockProducto
     ]);
-    
+
     echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto creado satisfactoriamente', 'inventario' => $coleccionInventario->find()->toArray()]);
     exit;
 }
