@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         tipoUsuarioHeader.innerHTML = `
-          <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+          <div class="d-flex align-items-center justify-content-center bg-body-tertiary border rounded-3 px-3 py-2 small shadow-sm">
             <span class="small text-muted me-1">Rol:</span>
             <strong class="text-dark fw-bold">${adminMensaje}</strong>
           </div>`;
 
         bienvenidaHeader.innerHTML = `
-          <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+          <div class="d-flex align-items-center justify-content-center bg-body-tertiary border rounded-3 px-3 py-2 small shadow-sm">
             <span class="small text-muted me-1">Usuario:</span>
             <strong class="text-dark fw-bold">${datos.usuario}</strong>
           </div>`;
@@ -111,13 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           tipoUsuarioHeader.innerHTML = `
-          <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+          <div class="d-flex align-items-center justify-content-center bg-body-tertiary border rounded-3 px-3 py-2 small shadow-sm">
             <span class="small text-muted me-1">Rol:</span>
             <strong class="text-dark fw-bold">${adminMensaje}</strong>
           </div>`;
 
           bienvenidaHeader.innerHTML = `
-                <div class="d-flex align-items-center bg-body-tertiary border rounded-3 px-3 py-1 me-2 shadow-sm">
+                <div class="d-flex align-items-center justify-content-center bg-body-tertiary border rounded-3 px-3 py-2 small shadow-sm">
                 <span class="small text-muted me-1">Usuario:</span>
                 <strong class="text-dark fw-bold">${datos.usuario}</strong>
                 </div>`;

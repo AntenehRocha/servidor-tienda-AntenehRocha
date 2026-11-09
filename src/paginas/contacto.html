@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,23 +14,32 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-light border-bottom">
+      <nav class="navbar navbar-expand-lg bg-light border-bottom shadow-sm sticky-top">
         <div class="container">
           <a class="navbar-brand fw-bold" href="./../index.html"
             >Tienda Informatica</a
           >
 
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav align-items-lg-center gap-lg-2 me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="./tienda.html">Tienda</a>
+                <a class="nav-link" href="./tienda.html">Tienda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./contacto.html">Contacto</a>
+                <a class="nav-link active" href="./contacto.html">Contacto</a>
               </li>
             </ul>
-          </div>
 
+          <div class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2 py-2 py-lg-0">
           <button
             class="btn btn-outline-primary"
             data-bs-toggle="modal"
@@ -50,6 +59,8 @@
           >
             Cerrar sesion
           </button>
+          </div>
+          </div>
         </div>
       </nav>
     </header>

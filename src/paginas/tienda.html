@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,12 +11,16 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-light border-bottom">
+    <nav class="navbar navbar-expand-lg bg-light border-bottom shadow-sm sticky-top">
       <div class="container">
         <a class="navbar-brand fw-bold" href="./../index.html">Tienda Informatica</a>
 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav align-items-lg-center gap-lg-2 me-auto">
             <li class="nav-item">
               <a class="nav-link active" href="./tienda.html">Tienda</a>
             </li>
@@ -24,8 +28,8 @@
               <a class="nav-link" href="./contacto.html">Contacto</a>
             </li>
           </ul>
-        </div>
 
+        <div class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2 py-2 py-lg-0">
         <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#RegModal"
           id="botonRegistroLogin">
           Registrarse / Login
@@ -38,10 +42,12 @@
           Cerrar sesion
         </button>
 
-        <button class="btn btn-outline-success ms-2 d-none" id="mostrarPanelAdmin" data-bs-toggle="modal"
+        <button class="btn btn-outline-success d-none" id="mostrarPanelAdmin" data-bs-toggle="modal"
           data-bs-target="#modalAdmin">
           Panel Admin
         </button>
+        </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -123,7 +129,7 @@
 
   <main class="container py-5">
     <section class="mb-5">
-      <div class="display-6 fw-bold mb-4 text-center text-md-start">
+      <div class="display-6 fw-bold mb-4 pb-2 border-bottom text-center text-md-start">
         Productos en stock
       </div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4" id="catalogoDinamico"></div>
@@ -143,7 +149,11 @@
           </div>
           <div class="col-md-7">
             <p id="modalProductoDesc" class="text-muted"></p>
-            <div class="d-flex justify-content-end mt-4">
+            <div class="mb-3">
+              <span class="badge bg-primary fs-6 fw-normal">Stock disponible:
+                <strong id="modalProductoStock">0</strong></span>
+            </div>
+            <div class="d-flex justify-content-center justify-content-md-end mt-4">
               <button class="btn btn-success fw-semibold">Añadir al carrito</button>
             </div>
           </div>
