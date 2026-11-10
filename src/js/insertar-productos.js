@@ -5,6 +5,33 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((datos) => {
       const arrayInventario = datos.inventario;
+
+      console.log(arrayInventario);
+
+      const posicionHero = Math.floor(Math.random() * arrayInventario.length);
+      const productoHero = arrayInventario[posicionHero];
+
+      let imagenHero = productoHero.imagen;
+      let nombreHero = productoHero.nombre;
+      let stockHero = productoHero.stock;
+      let descripcionHero = productoHero.descripcion;
+      let idHero = productoHero._id;
+
+      const verProductoBtn = document.querySelector("#verProductoBtn");
+
+      if (verProductoBtn) {
+        verProductoBtn.setAttribute("data-imagen", imagenHero);
+        verProductoBtn.setAttribute("data-nombre", nombreHero);
+        verProductoBtn.setAttribute("data-stock", stockHero);
+        verProductoBtn.setAttribute("data-desc", descripcionHero);
+        verProductoBtn.setAttribute("data-id", idHero);
+
+        const productoDestacadoImg = document.querySelector(
+          "#productoDestacadoImg",
+        );
+        productoDestacadoImg.src = imagenHero;
+      }
+
       const catalogoDinamico = document.querySelector("#catalogoDinamico");
 
       catalogoDinamico.innerHTML = "";

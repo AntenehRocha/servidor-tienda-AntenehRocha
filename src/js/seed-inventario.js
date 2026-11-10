@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const productosSeed = [
     {
+      nombre: "Macbook Pro PROLED XDR",
+      imagen:
+        "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_187711318?x=697&y=523&format=webp&quality=60&sp=yes&strip=yes&trim=yes&ex=697&ey=523&align=center&resizesource&unsharp=0.5x0.5",
+      descripcion:
+        "Primer MacBook con pantalla tactil y con el chip M5 Pro y M5 Max.",
+      stock: 34,
+    },
+    {
       nombre: "Portátil Gaming ASUS ROG Strix",
       imagen:
         "https://dlcdnwebimgs.asus.com/gain/0C906310-BF66-458A-A9BA-F7106106F1FA",

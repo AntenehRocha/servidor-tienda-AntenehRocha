@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Página de inicio</title>
-    <link rel="icon" type="image/svg+xml" href="./public/img/pc-store-icon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./public/img/pc-store-icon.svg"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -241,18 +245,25 @@
       <div class="container py-5">
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
-            <h1 class="hero-bf__title fw-bold mb-3">
+            <h1 class="hero-bf__title fw-bold mb-5">
               Aprovecha este Black Friday
             </h1>
-            <p class="hero-bf__text text-body-secondary mb-4">
-              Ofertas en portátiles, periféricos y componentes para equipar a tu
-              empresa.
-            </p>
             <div class="d-grid d-sm-flex gap-3">
               <a href="./paginas/tienda.html" class="btn btn-primary btn-lg"
                 >Ver ofertas</a
               >
-              <button type="button" class="btn btn-outline-primary btn-lg">
+              <button
+                type="button"
+                class="btn btn-outline-primary btn-lg"
+                id="verProductoBtn"
+                data-imagen=""
+                data-nombre=""
+                data-stock=""
+                data-desc=""
+                data-id=""
+                data-bs-toggle="modal"
+                data-bs-target="#tablaProducto"
+              >
                 Ver producto
               </button>
             </div>
@@ -260,13 +271,12 @@
           <div class="col-lg-6">
             <div class="hero-bf__card bg-white border rounded-4 p-4">
               <img
-                src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_187711318?x=697&y=523&format=webp&quality=60&sp=yes&strip=yes&trim=yes&ex=697&ey=523&align=center&resizesource&unsharp=0.5x0.5"
-                class="img-fluid d-block mx-auto"
+                src=""
+                class="img-fluid d-block mx-auto object-fit-contain"
+                style="height: 300px"
                 alt="Macbook Pro"
+                id="productoDestacadoImg"
               />
-              <div class="hero-bf__name fs-5 fw-semibold text-center mt-3">
-                Macbook Pro PROLED XDR
-              </div>
             </div>
           </div>
         </div>
