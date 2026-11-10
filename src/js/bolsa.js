@@ -28,26 +28,25 @@ document.addEventListener("click", (event) => {
     });
 });
 
-const botonBolsa = document.querySelector("#botonBolsa");
-if (botonBolsa) {
-  botonBolsa.addEventListener("click", () => {
-    fetch("./../php/bolsa.php", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((datos) => {
-        console.log(datos.bolsa);
+export function obtenerBolsa() {
+  fetch("./../php/bolsa.php", {
+    method: "GET",
+  })
+    .then((res) => res.json())
+    .then((datos) => {
+      if (datos.estado == "error") return;
+      console.log(datos.bolsa);
 
-        const bolsa = datos.bolsa;
+      const bolsa = datos.bolsa;
 
-        const numeroDeArticulos = document.querySelector("#badgeBolsa");
-        numeroDeArticulos.textContent = bolsa.length;
+      const numeroDeArticulos = document.querySelector("#badgeBolsa");
+      numeroDeArticulos.textContent = bolsa.length;
 
-        const contenedorBolsa = document.querySelector("#contenedorBolsa");
-        contenedorBolsa.innerHTML = "";
+      const contenedorBolsa = document.querySelector("#contenedorBolsa");
+      contenedorBolsa.innerHTML = "";
 
-        for (const cada_producto of bolsa) {
-          contenedorBolsa.innerHTML += `
+      for (const cada_producto of bolsa) {
+        contenedorBolsa.innerHTML += `
           <div class="list-group-item d-flex align-items-center gap-3 py-3">
     <img src="${cada_producto.imagen}" alt="${cada_producto.nombre}" class="rounded border bg-white p-1 flex-shrink-0"
       style="width: 72px; height: 72px; object-fit: contain;">
@@ -62,7 +61,6 @@ if (botonBolsa) {
       </strong></span>
   </div>
           `;
-        }
-      });
-  });
+      }
+    });
 }

@@ -1,3 +1,5 @@
+import { obtenerBolsa } from "./bolsa.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const regForm = document.getElementById("regForm");
   const loginForm = document.getElementById("loginForm");
@@ -8,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const tipoUsuarioHeader = document.querySelector("#tipoUsuario");
   const panelAdminBoton = document.querySelector("#mostrarPanelAdmin");
   const botonBolsa = document.querySelector("#botonBolsa");
+
+  obtenerBolsa();
 
   fetch("./../php/comprobar_sesion.php")
     .then((res) => res.json())
@@ -100,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
           cerrarSesionBoton.classList.remove("d-none");
           botonRegistroLogin.classList.add("d-none");
           botonBolsa.classList.remove("d-none");
+          obtenerBolsa();
 
           let adminMensaje = "";
 
