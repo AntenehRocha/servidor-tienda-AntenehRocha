@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Octeto">
-  <title>Octeto</title>
-  <g transform="translate(0 0) scale(1.0)">
-    <rect width="160" height="160" rx="36" fill="#0d6efd"/>
-    <path d="M60 72C60 40 100 40 100 72" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
-    <path d="M47 68H113L120 122H40Z" fill="#fff" stroke="#fff" stroke-width="12" stroke-linejoin="round"/>
-    <rect x="50" y="82" width="12" height="12" rx="2.5" fill="#0d6efd"/><rect x="66" y="82" width="12" height="12" rx="2.5" fill="#0d6efd"/><rect x="82" y="82" width="12" height="12" rx="2.5" fill="#0d6efd"/><rect x="98" y="82" width="12" height="12" rx="2.5" fill="#0d6efd"/><rect x="50" y="98" width="12" height="12" rx="2.5" fill="#0d6efd"/><rect x="66" y="98" width="12" height="12" rx="2.5" fill="#0d6efd"/><rect x="82" y="98" width="12" height="12" rx="2.5" fill="#0d6efd"/><rect x="98" y="98" width="12" height="12" rx="2.5" fill="#198754"/>
-  </g>
-</svg>

@@ -1,0 +1,138 @@
+/* colores de la web, si quiero cambiar algo lo cambio aqui y ya */
+:root {
+  --color-principal: #1e40af;
+  --color-principal-hover: #1e3a8a;
+  --color-principal-rgb: 30, 64, 175;
+  --color-oscuro: #0b1f3a;
+  --color-texto: #1f2937;
+  --color-texto-secundario: #5b6577;
+  --color-fondo: #ffffff;
+  --color-fondo-suave: #f4f6fa;
+  --color-fondo-suave-rgb: 244, 246, 250;
+  --color-borde: #e3e8ef;
+  --color-borde-fuerte: #cfd6e2;
+  --color-acento: #60a5fa;
+
+  /* le paso mis colores a bootstrap pa q sus clases los usen */
+  --bs-primary: var(--color-principal);
+  --bs-primary-rgb: var(--color-principal-rgb);
+  --bs-link-color: var(--color-principal);
+  --bs-link-color-rgb: var(--color-principal-rgb);
+  --bs-link-hover-color: var(--color-principal-hover);
+  --bs-link-hover-color-rgb: 30, 58, 138;
+  --bs-body-color: var(--color-texto);
+  --bs-body-bg: var(--color-fondo);
+  --bs-heading-color: var(--color-oscuro);
+  --bs-secondary-color: var(--color-texto-secundario);
+  --bs-border-color: var(--color-borde);
+  --bs-border-color-translucent: var(--color-borde);
+  --bs-border-radius: 8px;
+  --bs-border-radius-lg: 12px;
+  --bs-light-rgb: var(--color-fondo-suave-rgb);
+  --bs-tertiary-bg: var(--color-fondo-suave);
+  --bs-tertiary-bg-rgb: var(--color-fondo-suave-rgb);
+}
+
+/* botones, en bootstrap 5.3 cada boton tiene sus propias varibles */
+.btn-primary {
+  --bs-btn-bg: var(--color-principal);
+  --bs-btn-border-color: var(--color-principal);
+  --bs-btn-hover-bg: var(--color-principal-hover);
+  --bs-btn-hover-border-color: var(--color-principal-hover);
+  --bs-btn-active-bg: var(--color-principal-hover);
+  --bs-btn-active-border-color: var(--color-principal-hover);
+  --bs-btn-disabled-bg: var(--color-principal);
+  --bs-btn-disabled-border-color: var(--color-principal);
+  --bs-btn-focus-shadow-rgb: var(--color-principal-rgb);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--color-principal);
+  --bs-btn-border-color: var(--color-principal);
+  --bs-btn-hover-bg: var(--color-principal);
+  --bs-btn-hover-border-color: var(--color-principal);
+  --bs-btn-active-bg: var(--color-principal-hover);
+  --bs-btn-active-border-color: var(--color-principal-hover);
+  --bs-btn-disabled-color: var(--color-principal);
+  --bs-btn-disabled-border-color: var(--color-principal);
+  --bs-btn-focus-shadow-rgb: var(--color-principal-rgb);
+}
+
+/* esto bootstrap lo trae con su azul puesto a pelo asi q lo piso */
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--color-principal);
+}
+
+.form-control:focus,
+.form-check-input:focus {
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 0.25rem rgba(var(--color-principal-rgb), 0.15);
+}
+
+.form-check-input:checked {
+  background-color: var(--color-principal);
+  border-color: var(--color-principal);
+}
+
+/* header */
+.navbar {
+  --bs-navbar-color: var(--color-texto-secundario);
+  --bs-navbar-hover-color: var(--color-oscuro);
+  --bs-navbar-active-color: var(--color-oscuro);
+}
+
+/* los botones de borde del header (login y panel admin) con borde grisecito */
+.navbar .btn-outline-primary {
+  --bs-btn-color: var(--color-oscuro);
+  --bs-btn-border-color: var(--color-borde-fuerte);
+}
+
+.logo-texto {
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  color: var(--color-oscuro);
+}
+
+.logo-pc {
+  font-weight: 800;
+}
+
+/* hero del black friday */
+.hero-bf__title {
+  font-size: 52px;
+  letter-spacing: -1.2px;
+}
+
+.hero-bf__text {
+  font-size: 18px;
+}
+
+.hero-bf__card {
+  box-shadow: 0 8px 24px rgba(11, 31, 58, 0.08);
+}
+
+.hero-bf__name {
+  color: var(--color-oscuro);
+}
+
+/* en movil el titulo mas pequeño q sino ocupa media pantalla */
+@media (max-width: 767.98px) {
+  .hero-bf__title {
+    font-size: 36px;
+  }
+}
+
+/* catalogo */
+.titulo-seccion {
+  font-size: 30px;
+  color: var(--color-oscuro);
+}
+
+.producto-card {
+  --bs-card-spacer-x: 20px;
+  --bs-card-spacer-y: 20px;
+}
+
+.producto-card .btn {
+  min-height: 44px;
+}
