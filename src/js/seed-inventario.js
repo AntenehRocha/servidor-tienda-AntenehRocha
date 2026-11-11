@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Primer MacBook con pantalla tactil y con el chip M5 Pro y M5 Max.",
       stock: 34,
+      precio: 2549,
     },
     {
       nombre: "Portátil Gaming ASUS ROG Strix",
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Pantalla de 16 pulgadas, procesador Intel Core i7 de última generación, 16GB de RAM y tarjeta gráfica RTX 4060. Ideal para gaming avanzado y diseño profesional.",
       stock: 7,
+      precio: 1599,
     },
     {
       nombre: "Teclado Mecánico RGB Pro",
@@ -23,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Teclado mecánico con interruptores (switches) mecánicos azules, retroiluminación RGB totalmente configurable y estructura de aluminio de alta resistencia.",
       stock: 26,
+      precio: 79,
     },
     {
       nombre: "Ratón Ergonómico Inalámbrico",
@@ -31,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Conexión 2.4GHz y Bluetooth. Diseño ergonómico vertical para evitar la fatiga en la muñeca y batería recargable de larga duración.",
       stock: 2,
+      precio: 49,
     },
     {
       nombre: 'Monitor Curvo 27" 4K',
@@ -39,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Resolución Ultra HD 4K, panel IPS con colores vivos y curvatura 1500R para una inmersión completa. Tasa de refresco de 144Hz.",
       stock: 12,
+      precio: 299,
     },
     {
       nombre: "Auriculares Inalámbricos Noise Cancelling",
@@ -47,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Cancelación activa de ruido (ANC), audio de alta resolución y almohadillas viscoelásticas ultra cómodas. Hasta 30 horas de autonomía.",
       stock: 89,
+      precio: 129,
     },
     {
       nombre: "Disco Duro SSD Externo 1TB",
@@ -55,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Unidad de estado sólido ultraportátil con conexión USB-C 3.2. Velocidades de transferencia de hasta 1050 MB/s con carcasa resistente a caídas.",
       stock: 45,
+      precio: 149,
     },
     {
       nombre: "Memoria RAM DDR5 32GB Kit",
@@ -63,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descripcion:
         "Kit de dos módulos de 16GB (32GB en total) a una frecuencia de 6000MHz. Equipado con disipador térmico de aluminio de perfil bajo.",
       stock: 4,
+      precio: 199,
     },
   ];
 

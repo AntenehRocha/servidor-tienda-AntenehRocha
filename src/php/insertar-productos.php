@@ -18,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $descripcion = $cada_producto['descripcion'];
         $imagen = $cada_producto['imagen'];
         $stock = $cada_producto['stock'];
+        // los productos antiguos no tienen precio, por eso el ?? null
+        $precio = $cada_producto['precio'] ?? null;
         $id = (string) $cada_producto['_id'];
 
         $arrayInventario[] = [
@@ -25,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             'nombre' => $nombre,
             'imagen' => $imagen,
             'descripcion' => $descripcion,
-            'stock' => $stock
+            'stock' => $stock,
+            'precio' => $precio
         ];
     };
 
@@ -43,12 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagenProducto = $_POST['imagen'];
     $descripcionProducto = $_POST['descripcion'];
     $stockProducto = $_POST['stock'];
+    $precioProducto = $_POST['precio'];
 
     $coleccionInventario->insertOne([
         'nombre' => $nombreProducto,
         'imagen' => $imagenProducto,
         'descripcion' => $descripcionProducto,
-        'stock' => (int)$stockProducto
+        'stock' => (int)$stockProducto,
+        'precio' => (float)$precioProducto
     ]);
 
     echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto creado satisfactoriamente', 'inventario' => $coleccionInventario->find()->toArray()]);

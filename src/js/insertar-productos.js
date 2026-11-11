@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let stockHero = productoHero.stock;
       let descripcionHero = productoHero.descripcion;
       let idHero = productoHero._id;
+      let precioHero = productoHero.precio;
 
       const verProductoBtn = document.querySelector("#verProductoBtn");
 
@@ -25,7 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
         verProductoBtn.setAttribute("data-stock", stockHero);
         verProductoBtn.setAttribute("data-desc", descripcionHero);
         verProductoBtn.setAttribute("data-id", idHero);
-
+        verProductoBtn.setAttribute("data-precio", precioHero);
+        
         const productoDestacadoImg = document.querySelector(
           "#productoDestacadoImg",
         );
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h5 class="card-title fs-6 fw-semibold">${cada_producto.nombre}</h5>
                 <p class="card-text text-muted small">${cada_producto.descripcion}</p>
                 <div class="mt-auto">
-                    <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-id="${cada_producto._id}"> Ver detalles </button>
+                    <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-precio="${cada_producto.precio}" data-id="${cada_producto._id}"> Ver detalles </button>
                 </div>
               </div>
             </article>
@@ -62,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const imagen = document.querySelector("#ImagenProducto").value;
       const descripcion = document.querySelector("#DescripcionProducto").value;
       const stock = document.querySelector("#stockProducto").value;
+      const precio = document.querySelector("#precioProducto").value;
 
       console.log("Creando producto:", { nombre, imagen, descripcion });
 
@@ -70,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nuevoProducto.append("imagen", imagen);
       nuevoProducto.append("descripcion", descripcion);
       nuevoProducto.append("stock", stock);
+      nuevoProducto.append("precio", precio);
 
       fetch("./../php/insertar-productos.php", {
         method: "POST",
@@ -95,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <h5 class="card-title fs-6 fw-semibold">${cada_producto.nombre}</h5>
                       <p class="card-text text-muted small">${cada_producto.descripcion}</p>
                       <div class="mt-auto">
-                        <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-id="${cada_producto._id}"> Ver detalles </button>
+                        <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-precio="${cada_producto.precio}" data-id="${cada_producto._id}"> Ver detalles </button>
                       </div>
                     </div>
                   </article>
@@ -120,7 +124,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const desc = botonClicado.getAttribute("data-desc");
         const stock = botonClicado.getAttribute("data-stock");
         const id = botonClicado.getAttribute("data-id");
+        const precio = Number(botonClicado.getAttribute("data-precio"));
 
+        // si el producto no tiene precio guardado aviso
+        let precioTexto = "Precio no disponible";
+        if (precio > 0) {
+          precioTexto = precio.toLocaleString("es-ES", {
+            style: "currency",
+            currency: "EUR",
+          });
+        }
+
+        modalProducto.querySelector("#modalProductoPrecio").textContent =
+          precioTexto;
         modalProducto.querySelector("#modalProductoTitulo").textContent =
           nombre;
         modalProducto.querySelector("#modalProductoImagen").src = imagen;

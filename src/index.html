@@ -326,6 +326,10 @@
                   />
                 </div>
                 <div class="col-md-7">
+                  <p
+                    id="modalProductoPrecio"
+                    class="fs-3 fw-bold text-primary mb-2"
+                  ></p>
                   <p id="modalProductoDesc" class="text-muted"></p>
                   <div class="mb-3">
                     <span class="badge bg-primary fs-6 fw-normal"
@@ -395,6 +399,20 @@
                     type="number"
                     class="form-control"
                     id="stockProducto"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="precioProducto" class="form-label fw-medium"
+                    >Precio del producto</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="precioProducto"
+                    min="0"
+                    step="0.01"
                     required
                   />
                 </div>

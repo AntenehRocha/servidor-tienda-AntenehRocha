@@ -20,13 +20,15 @@ if ($coleccionInventario && $_SERVER["REQUEST_METHOD"] == "POST") {
                 $imagen = $cada_producto['imagen'];
                 $descripcion = $cada_producto['descripcion'];
                 $stock = $cada_producto['stock'];
+                $precio = $cada_producto['precio'] ?? 0;
 
                 $coleccionInventario->insertOne([
                     'nombre' => $nombre,
                     'imagen' => $imagen,
                     'descripcion' => $descripcion,
-                    'stock' => (int)$stock
-                ]); 
+                    'stock' => (int)$stock,
+                    'precio' => (float)$precio
+                ]);
             }
 
             echo json_encode(['estado' => 'correcto', 'mensaje' => 'Se han creado productos, mediante una seed, ya que la BBDD estaba vacia']);
