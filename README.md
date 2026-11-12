@@ -1,28 +1,40 @@
-# Proyecto de tienda, para Servidor y Cliente
+# PC Store
 
-#### Para comenzar es necesario ejecutar estes comando en el el contenedor desplegado por el docker-compose.yml
+Tienda de informática que estoy haciendo para Servidor y Cliente. Tiene login, catálogo, bolsa de la compra y un panel para los admin.
 
-```` composer require mongodb/mongodb ````
+| Parte | Lo que uso |
+|---|---|
+| Interfaz | HTML + Bootstrap 5.3 por CDN |
+| Cliente | JavaScript con `fetch` |
+| Servidor | PHP + Apache en Docker |
+| Base de datos | MongoDB Atlas |
 
-#### Para ello haremos ```` docker exec 'nombre-contenedor' composer require mongodb/mongodb ````
+## Para arrancarlo
 
-##### Se creará la carpeta  ```` vendor ```` y los archivos necesarios como ```` composer.json ```` los cuales ya dejaré añadidos el repositorio
+Primero levanto el contenedor y luego instalo la librería de MongoDB dentro:
 
-<br></br>
+```bash
+docker compose up -d --build
+docker exec -w /var/www servidor-tienda-AntenehRocha composer require mongodb/mongodb
+```
 
----
+Ojo con el `-w /var/www`: si no lo pones, la carpeta `vendor` se crea dentro de `src` y `conexion.php` no la encuentra.
 
-### Algo interesante de este proyecto es el uso de Bootstrap
-##### Lo uso inyectandolo desde el CDN
- <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/3840px-Bootstrap_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Descripción" style="width: 2%;">
+Luego entras en <http://localhost:8080>. Si el inventario está vacío, la seed mete solos los productos de ejemplo.
 
- <br></br>
+## Cómo va
 
----
+```mermaid
+flowchart LR
+    A[Navegador] -->|fetch| B[PHP]
+    B -->|JSON| A
+    B --> C[(MongoDB Atlas)]
+```
 
- ### Para el login y el logout me decidí por usar las sesiones de PHP las cuales me facilitan que la pagina se recargue y el usuario continue logueado
- ##### Y mediante el uso de ```` display: none; ````  estoy gestionando el DOM para que dependiendo de los estados de la pagina se muestre una información u otra
+Desde el JS hago `fetch` a los PHP, estos hablan con Mongo y me devuelven JSON, y con eso pinto todo en la página.
 
- ##### En esta web por defecto los usuarios son ````comprador```` esto permite que de manera intencionada por los administradores los usuarios que se prefieran, puedan ser ````admin```` unicamente editanto el campo en la base de datos
-
- ##### Actualmente siguiendo este procedidmiento tengo un panel lateral, un formulario para los administradores en las paginas ````index.html```` y ````tienda.html````, directamente al iniciar sesion con una cuenta con permisos
+- **Login:** me decidí por las sesiones de PHP, así el usuario sigue logueado aunque recargue. Todos se registran como compradores, y si quiero que alguien sea admin le cambio el campo `admin` a mano en la base de datos.
+- **Catálogo:** las tarjetas las pinto desde el JS con lo que me llega del inventario. En vez de un modal por producto tengo uno solo, que se rellena con los `data-*` del botón que lo abre.
+- **Hero:** al principio quería que saliera siempre el Macbook, pero el ID cambia cada vez que borro la base de datos, así que al final saco un producto aleatorio del inventario.
+- **Bolsa:** cada usuario tiene la suya, guardada como un array dentro de su documento. El precio lo saco del inventario en el PHP y no del navegador, para que no se pueda trampear.
+- **Panel admin:** un formulario para crear productos. Aparte de ocultar el botón, en el PHP compruebo que la sesión sea de admin.

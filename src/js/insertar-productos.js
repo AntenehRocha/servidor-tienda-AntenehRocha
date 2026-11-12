@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((datos) => {
       const arrayInventario = datos.inventario;
 
-      console.log(arrayInventario);
+      if (arrayInventario.length === 0) return;
 
       const posicionHero = Math.floor(Math.random() * arrayInventario.length);
       const productoHero = arrayInventario[posicionHero];

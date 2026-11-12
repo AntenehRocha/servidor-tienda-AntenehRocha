@@ -22,7 +22,7 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "GET") {
 if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
 
-    if (($_POST['accion']) === 'eliminar') {
+    if (isset($_POST['accion']) && $_POST['accion'] === 'eliminar') {
         $resultado = $coleccionUsuario->updateOne(
             ['_id' => new ObjectId($_SESSION['usuarioId'])],
             ['$set' => ['bolsa' => []]]
@@ -35,13 +35,21 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $idProducto = $_POST['id'];
-    $cantidadProducto = $_POST['cantidad'];
+    $cantidadProducto = (int)$_POST['cantidad'];
 
     $producto = $coleccionInventario->findOne([
         '_id' => new ObjectId($idProducto)
     ]);
 
-    // echo json_encode($_SESSION['usuarioId']);
+    if (!$producto) {
+        echo json_encode(['estado' => 'error', 'mensaje' => 'El producto no existe']);
+        exit;
+    }
+
+    if ($cantidadProducto < 1 || $cantidadProducto > $producto['stock']) {
+        echo json_encode(['estado' => 'error', 'mensaje' => 'Error, el stock solo es de ' . $producto['stock'] . ' unidades']);
+        exit;
+    }
 
     $resultado = $coleccionUsuario->updateOne(
         ['_id' => new ObjectId($_SESSION['usuarioId'])],
