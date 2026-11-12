@@ -4,6 +4,8 @@ header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/conexion.php';
 
+use MongoDB\BSON\ObjectId;
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -18,8 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $descripcion = $cada_producto['descripcion'];
         $imagen = $cada_producto['imagen'];
         $stock = $cada_producto['stock'];
-        // los productos antiguos no tienen precio, por eso el ?? null
-        $precio = $cada_producto['precio'] ?? null;
+        $precio = $cada_producto['precio'];
         $id = (string) $cada_producto['_id'];
 
         $arrayInventario[] = [
@@ -39,6 +40,20 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
         echo json_encode(['estado' => 'error', 'mensaje' => 'No tienes permisos de administrador']);
+        exit;
+    }
+
+    if (isset($_POST['accion']) && $_POST['accion'] === 'eliminar') {
+        $idProducto = new ObjectId($_POST['id']);
+
+        $coleccionInventario->deleteOne(['_id' => $idProducto]);
+
+        $resultado = $coleccionUsuario->updateMany(
+            [],
+            ['$pull' => ['bolsa' => ['productoId' => $idProducto]]]
+        );
+
+        echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto eliminado y quitado de ' . $resultado->getModifiedCount() . ' bolsas']);
         exit;
     }
 

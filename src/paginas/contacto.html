@@ -52,6 +52,11 @@
               Panel Admin
             </button>
 
+            <button class="btn btn-outline-danger d-none" id="mostrarEliminarProducto" data-bs-toggle="modal"
+              data-bs-target="#modalEliminarProducto">
+              Eliminar producto
+            </button>
+
             <button class="btn btn-primary position-relative d-none" id="botonBolsa" data-bs-toggle="modal"
               data-bs-target="#modalBolsa">
               Bolsa
@@ -142,6 +147,44 @@
   <section class="container mt-4 text-center" id="avisosDOM"></section>
 
   <section>
+    <div class="modal fade" id="tablaProducto" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content shadow">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="modalProductoTitulo">
+              Cargando...
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body p-4">
+            <div class="row align-items-center">
+              <div class="col-md-5 text-center mb-3 mb-md-0">
+                <img src="" id="modalProductoImagen" class="img-fluid rounded" alt="Imagen del producto"
+                  style="max-height: 250px; object-fit: contain" />
+              </div>
+              <div class="col-md-7">
+                <p id="modalProductoPrecio" class="fs-3 fw-bold text-primary mb-2"></p>
+                <p id="modalProductoDesc" class="text-muted"></p>
+                <div class="mb-3">
+                  <span class="badge bg-primary fs-6 fw-normal">Stock disponible:
+                    <strong id="modalProductoStock">0</strong></span>
+                </div>
+                <div class="mb-3">
+                  <label for="cantidadProducto" class="form-label fw-medium">Cantidad:</label>
+                  <input type="number" class="form-control" id="cantidadProducto" min="1" value="1" />
+                </div>
+                <div class="d-flex justify-content-center justify-content-md-end mt-4">
+                  <button class="btn btn-primary fw-semibold" id="btnAgregarBolsa">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="modalAdmin" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content shadow">
@@ -184,6 +227,25 @@
       </div>
     </div>
 
+    <div class="modal fade" id="modalEliminarProducto" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">Eliminar producto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+
+          <div class="modal-body p-4">
+            <label for="selectEliminarProducto" class="form-label fw-medium">Producto</label>
+            <select class="form-select mb-3" id="selectEliminarProducto"></select>
+            <button type="button" class="btn btn-danger w-100 py-2 fw-semibold" id="btnEliminarProducto">
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="modalBolsa" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content shadow">
@@ -192,14 +254,22 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
           </div>
           <div class="modal-body p-4">
-            <div id="contenedorBolsa" class="list-group mb-3"></div>
-            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 border-top pt-3">
-              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                Seguir comprando
-              </button>
-              <button type="button" class="btn btn-primary fw-semibold" id="btnComprar">
-                Tramitar Pedido
-              </button>
+            <div id="contenedorBolsa" class="list-group list-group-flush mb-3"
+              style="max-height: 50vh; overflow-y: auto"></div>
+
+            <div class="border-top pt-3">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fs-5 text-muted">Total</span>
+                <span class="fs-3 fw-bold text-primary" id="totalBolsa">0,00 €</span>
+              </div>
+              <div class="d-grid d-sm-flex gap-2 justify-content-sm-between">
+                <button type="button" class="btn btn-outline-danger" id="btnEliminarBolsa">
+                  Eliminar bolsa
+                </button>
+                <button type="button" class="btn btn-primary fw-semibold px-4" id="btnPagarAhora">
+                  Pagar ahora
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -218,8 +288,8 @@
 
             <form id="opinionForm">
               <div class="mb-3">
-                <label for="nombreInput" class="form-label fw-medium">Nombre completo</label>
-                <input type="text" class="form-control" id="nombreInput" />
+                <label for="nombreOpinion" class="form-label fw-medium">Nombre completo</label>
+                <input type="text" class="form-control" id="nombreOpinion" />
               </div>
 
               <div class="mb-3">
@@ -273,6 +343,8 @@
     integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
     crossorigin="anonymous"></script>
   <script type="module" src="./../js/login.js"></script>
+  <script type="module" src="./../js/insertar-productos.js"></script>
+  <script type="module" src="./../js/bolsa.js"></script>
   <script type="module" src="./../js/contacto.js"></script>
 </body>
 

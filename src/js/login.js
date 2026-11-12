@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tipoUsuarioHeader = document.querySelector("#tipoUsuario");
   const panelAdminBoton = document.querySelector("#mostrarPanelAdmin");
   const botonBolsa = document.querySelector("#botonBolsa");
+  const botonEliminarProducto = document.querySelector("#mostrarEliminarProducto");
 
   obtenerBolsa();
 
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (datos.admin) {
           adminMensaje = "Administrador";
           panelAdminBoton.classList.remove("d-none");
+          botonEliminarProducto.classList.remove("d-none");
         } else {
           adminMensaje = "Comprador";
         }
@@ -111,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (datos.admin) {
             adminMensaje = "Administrador";
             panelAdminBoton.classList.remove("d-none");
+            botonEliminarProducto.classList.remove("d-none");
           } else {
             adminMensaje = "Comprador";
           }
@@ -145,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
           avisosDOM.classList.remove("d-none");
           botonBolsa.classList.add("d-none");
           panelAdminBoton.classList.add("d-none");
+          botonEliminarProducto.classList.add("d-none");
           location.reload();
         }
       });

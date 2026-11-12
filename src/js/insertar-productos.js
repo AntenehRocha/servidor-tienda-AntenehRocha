@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (arrayInventario.length === 0) return;
 
+      const selectEliminar = document.querySelector("#selectEliminarProducto");
+      selectEliminar.innerHTML = "";
+      for (let cada_producto of arrayInventario) {
+        selectEliminar.innerHTML += `<option value="${cada_producto._id}">${cada_producto.nombre}</option>`;
+      }
+
       const posicionHero = Math.floor(Math.random() * arrayInventario.length);
       const productoHero = arrayInventario[posicionHero];
 
@@ -35,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const catalogoDinamico = document.querySelector("#catalogoDinamico");
+      if (!catalogoDinamico) return;
 
       catalogoDinamico.innerHTML = "";
       for (let cada_producto of arrayInventario) {
@@ -82,30 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((res) => res.json())
         .then((datos) => {
           if (datos.estado === "correcto") {
-            const avisosDOM = document.querySelector("#avisosDOM");
-            if (avisosDOM) {
-              avisosDOM.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
-            }
-            ProductoForm.reset();
-            const catalogoDinamico =
-              document.querySelector("#catalogoDinamico");
-            catalogoDinamico.innerHTML = "";
-            for (let cada_producto of datos.inventario) {
-              catalogoDinamico.innerHTML += `
-                <div class="col">
-                  <article class="card h-100 rounded-3 overflow-hidden producto-card">
-                    <img src="${cada_producto.imagen}" class="card-img-top bg-light object-fit-contain p-3" alt="${cada_producto.nombre}" style="height: 180px;">
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fs-6 fw-semibold">${cada_producto.nombre}</h5>
-                      <p class="card-text text-muted small">${cada_producto.descripcion}</p>
-                      <div class="mt-auto">
-                        <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-precio="${cada_producto.precio}" data-id="${cada_producto._id}"> Ver detalles </button>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              `;
-            }
+            location.reload();
           } else {
             const avisosDOM = document.querySelector("#avisosDOM");
             avisosDOM.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
@@ -152,4 +136,28 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+
+  const btnEliminarProducto = document.querySelector("#btnEliminarProducto");
+
+  btnEliminarProducto.addEventListener("click", () => {
+    const idProducto = document.querySelector("#selectEliminarProducto").value;
+
+    const eliminarProducto = new FormData();
+    eliminarProducto.append("accion", "eliminar");
+    eliminarProducto.append("id", idProducto);
+
+    fetch("./../php/insertar-productos.php", {
+      method: "POST",
+      body: eliminarProducto,
+    })
+      .then((res) => res.json())
+      .then((datos) => {
+        if (datos.estado === "correcto") {
+          location.reload();
+        } else {
+          const avisosDOM = document.querySelector("#avisosDOM");
+          avisosDOM.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
+        }
+      });
+  });
 });

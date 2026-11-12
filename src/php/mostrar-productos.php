@@ -20,7 +20,7 @@ if ($coleccionInventario && $_SERVER["REQUEST_METHOD"] == "POST") {
                 $imagen = $cada_producto['imagen'];
                 $descripcion = $cada_producto['descripcion'];
                 $stock = $cada_producto['stock'];
-                $precio = $cada_producto['precio'] ?? 0;
+                $precio = $cada_producto['precio'];
 
                 $coleccionInventario->insertOne([
                     'nombre' => $nombre,

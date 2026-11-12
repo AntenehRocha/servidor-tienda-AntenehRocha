@@ -52,6 +52,11 @@
               Panel Admin
             </button>
 
+            <button class="btn btn-outline-danger d-none" id="mostrarEliminarProducto" data-bs-toggle="modal"
+              data-bs-target="#modalEliminarProducto">
+              Eliminar producto
+            </button>
+
             <button class="btn btn-primary position-relative d-none" id="botonBolsa" data-bs-toggle="modal"
               data-bs-target="#modalBolsa">
               Bolsa
@@ -249,6 +254,25 @@
                 Crear producto
               </button>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalEliminarProducto" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">Eliminar producto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+
+          <div class="modal-body p-4">
+            <label for="selectEliminarProducto" class="form-label fw-medium">Producto</label>
+            <select class="form-select mb-3" id="selectEliminarProducto"></select>
+            <button type="button" class="btn btn-danger w-100 py-2 fw-semibold" id="btnEliminarProducto">
+              Eliminar
+            </button>
           </div>
         </div>
       </div>
