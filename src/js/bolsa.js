@@ -77,9 +77,9 @@ export function obtenerBolsa() {
       const contenedorBolsa = document.querySelector("#contenedorBolsa");
       contenedorBolsa.innerHTML = "";
 
+      let precioTotal = 0;
+
       for (const cada_producto of bolsa) {
-        console.log(cada_producto);
-        let precioTotal = 0;
         precioTotal += cada_producto.precio * cada_producto.cantidad;
 
         contenedorBolsa.innerHTML += `
@@ -100,5 +100,7 @@ export function obtenerBolsa() {
   </div>
 `;
       }
+
+      document.querySelector("#totalBolsa").textContent = precioTotal + " €";
     });
 }
