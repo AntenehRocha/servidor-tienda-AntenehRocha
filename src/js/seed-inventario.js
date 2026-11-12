@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       nombre: "Teclado Mecánico RGB Pro",
       imagen:
-        "https://www.meetion.com/lifisher-m4425/1760079416269-5/png80-t3-scale100.webp",
+        "https://www.powerplanetonline.com/cdnassets/products/112167/razer-teclado-huntsman-v3-pro-tenkeyless-cs2-edition-principal_l.webp?w=1280&q=75&format=webp",
       descripcion:
         "Teclado mecánico con interruptores (switches) mecánicos azules, retroiluminación RGB totalmente configurable y estructura de aluminio de alta resistencia.",
       stock: 26,
