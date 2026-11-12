@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
       precio: 1599,
     },
     {
-      nombre: "Teclado Mecánico RGB Pro",
+      nombre: "Teclado Mecánico",
       imagen:
-        "https://www.powerplanetonline.com/cdnassets/products/112167/razer-teclado-huntsman-v3-pro-tenkeyless-cs2-edition-principal_l.webp?w=1280&q=75&format=webp",
+        "https://www.game.es/_next/image?url=https%3A%2F%2Fmedia.game.es%2FCOVERV2%2F3D_L%2F232%2F232336.png&w=3840&q=75",
       descripcion:
         "Teclado mecánico con interruptores (switches) mecánicos azules, retroiluminación RGB totalmente configurable y estructura de aluminio de alta resistencia.",
       stock: 26,
