@@ -21,6 +21,7 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "GET") {
 
 if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
     $idProducto = $_POST['id'];
+    $cantidadProducto = $_POST['cantidad'];
 
     $producto = $coleccionInventario->findOne([
         '_id' => new ObjectId($idProducto)
@@ -37,6 +38,8 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
             'imagen' => $producto['imagen'],
             'descripcion' => $producto['descripcion'],
             'stock' => $producto['stock'],
+            'cantidad' => $cantidadProducto,
+            'precio' => $producto['precio']
         ]]]
     );
 

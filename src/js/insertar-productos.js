@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         verProductoBtn.setAttribute("data-desc", descripcionHero);
         verProductoBtn.setAttribute("data-id", idHero);
         verProductoBtn.setAttribute("data-precio", precioHero);
-        
+
         const productoDestacadoImg = document.querySelector(
           "#productoDestacadoImg",
         );
@@ -142,6 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
         modalProducto.querySelector("#modalProductoImagen").src = imagen;
         modalProducto.querySelector("#modalProductoDesc").textContent = desc;
         modalProducto.querySelector("#modalProductoStock").textContent = stock;
+        modalProducto.querySelector("#cantidadProducto").value = 1;
+        modalProducto.querySelector("#cantidadProducto").max = stock;
 
         const btnAgregar = modalProducto.querySelector("#btnAgregarBolsa");
         if (btnAgregar) {
