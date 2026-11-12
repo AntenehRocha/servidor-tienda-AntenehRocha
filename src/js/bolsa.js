@@ -39,6 +39,27 @@ document.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("click", (event) => {
+  const btn = event.target.closest("#btnEliminarBolsa");
+  if (!btn) return;
+
+  const accion = "eliminar";
+
+  const eliminarBolsa = new FormData();
+  eliminarBolsa.append("accion", accion);
+
+  fetch("./../php/bolsa.php", {
+    method: "POST",
+    body: eliminarBolsa,
+  })
+    .then((res) => res.json())
+    .then((datos) => {
+      if (datos.estado === "correcto") {
+        obtenerBolsa();
+      }
+    });
+});
+
 export function obtenerBolsa() {
   fetch("./../php/bolsa.php", {
     method: "GET",

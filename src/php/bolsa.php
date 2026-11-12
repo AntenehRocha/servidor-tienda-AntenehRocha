@@ -20,6 +20,20 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+    if (($_POST['accion']) === 'eliminar') {
+        $resultado = $coleccionUsuario->updateOne(
+            ['_id' => new ObjectId($_SESSION['usuarioId'])],
+            ['$set' => ['bolsa' => []]]
+        );
+
+        echo json_encode(['estado' => 'correcto', 'mensaje' => 'La bolsa se ha vaciado satisfactoriamente']);
+        exit;
+    }
+
+
+
     $idProducto = $_POST['id'];
     $cantidadProducto = $_POST['cantidad'];
 
