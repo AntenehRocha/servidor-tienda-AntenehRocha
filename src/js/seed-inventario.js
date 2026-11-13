@@ -89,11 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (datos.estado === "correcto") {
         const avisosDOM = document.querySelector("#avisosDOM");
         if (avisosDOM) {
-          avisosDOM.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
+          // avisosDOM.innerHTML = `<div class="alert alert-success" role="alert"> ${datos.mensaje} </div>`;
+          console.warn("Respuesta del servidor:", datos.mensaje);
         }
       } else {
-        const avisosDOM = document.querySelector("#avisosDOM");
-        avisosDOM.innerHTML = `<div class="alert alert-warning" role="alert"> ${datos.mensaje} </div>`;
+        // const avisosDOM = document.querySelector("#avisosDOM");
+        // avisosDOM.innerHTML = `<div class="alert alert-warning" role="alert"> ${datos.mensaje} </div>`;
         console.warn("Respuesta del servidor:", datos.mensaje);
       }
     });
