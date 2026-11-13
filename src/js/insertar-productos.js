@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modalProducto.querySelector("#modalProductoStock").textContent = stock;
         modalProducto.querySelector("#cantidadProducto").value = 1;
         modalProducto.querySelector("#cantidadProducto").max = stock;
+        modalProducto.querySelector("#avisosModal").innerHTML = "";
 
         const btnAgregar = modalProducto.querySelector("#btnAgregarBolsa");
         if (btnAgregar) {
