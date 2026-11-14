@@ -65,6 +65,10 @@
                 0
               </span>
             </button>
+            <button class="btn btn-outline-primary d-none ms-2" id="botonEditarPerfil" data-bs-toggle="modal"
+              data-bs-target="#contenedorEditarPerfil">
+              Editar perfil
+            </button>
           </div>
         </div>
       </div>
@@ -276,6 +280,33 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="contenedorEditarPerfil" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">Editar perfil</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body p-4">
+            <div id="avisosEditarPerfil"> </div>
+            <form id="editarPerfilForm" novalidate>
+              <div class="mb-3">
+                <label for="perfilUsuario" class="form-label fw-medium">Nombre de usuario</label>
+                <input type="text" class="form-control" id="perfilUsuario" name="usuario" required />
+              </div>
+              <div class="mb-3">
+                <label for="perfilUsuario" class="form-label fw-medium">Contraseña</label>
+                <input type="password" class="form-control" id="perfilContraseña" name="contraseña" required />
+              </div>
+              <button type="submit" class="btn btn-primary w-100 fw-semibold">
+                Guardar cambios
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <main class="container my-5">
@@ -346,6 +377,7 @@
   <script type="module" src="./../js/login.js"></script>
   <script type="module" src="./../js/insertar-productos.js"></script>
   <script type="module" src="./../js/bolsa.js"></script>
+  <script type="module" src="./../js/editar-usuarios.js"></script>
   <script type="module" src="./../js/contacto.js"></script>
 </body>
 
