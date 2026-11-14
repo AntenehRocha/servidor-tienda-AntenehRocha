@@ -21,6 +21,8 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
         ]]
     );
 
+    $_SESSION['usuario'] = $nuevoUsuario;
+
     echo json_encode(['estado' => 'correcto', 'mensaje' => 'Nombre de usuario actualizado correctamente']);
     exit;
 } else {

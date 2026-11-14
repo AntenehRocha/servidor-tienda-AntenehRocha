@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "#avisosEditarPerfil",
           );
           avisosEditarPerfil.innerHTML = `<div class="alert alert-success text-center" role="alert"> ${datos.mensaje} </div>`;
+          window.location.reload(); 
         }
       });
   });
