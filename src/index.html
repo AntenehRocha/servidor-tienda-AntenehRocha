@@ -57,6 +57,11 @@
               Eliminar producto
             </button>
 
+            <button class="btn btn-outline-primary d-none" id="mostrarPedidos" data-bs-toggle="modal"
+              data-bs-target="#modalPedidos">
+              Pedidos
+            </button>
+
             <button class="btn btn-primary position-relative d-none" id="botonBolsa" data-bs-toggle="modal"
               data-bs-target="#modalBolsa">
               Bolsa
@@ -335,6 +340,21 @@
                 Guardar cambios
               </button>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalPedidos" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content shadow">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">Pedidos de los compradores</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body p-4">
+            <div id="avisosPedidos"></div>
+            <div id="contenedorPedidos" class="list-group list-group-flush"></div>
           </div>
         </div>
       </div>
