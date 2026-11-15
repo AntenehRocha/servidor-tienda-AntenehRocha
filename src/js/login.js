@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonEliminarProducto = document.querySelector("#mostrarEliminarProducto");
   const botonEditarPerfil = document.querySelector("#botonEditarPerfil");
   const mostrarPedidosBoton = document.querySelector("#mostrarPedidos");
+  const mostrarHistorial = document.querySelector("#mostrarHistorial");
 
   obtenerBolsa();
 
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         botonRegistroLogin.classList.add("d-none");
         botonBolsa.classList.remove("d-none");
         botonEditarPerfil.classList.remove("d-none");
+        mostrarHistorial.classList.remove("d-none");
 
         let adminMensaje = "";
 
@@ -111,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
           botonRegistroLogin.classList.add("d-none");
           botonBolsa.classList.remove("d-none");
           botonEditarPerfil.classList.remove("d-none");
+          mostrarHistorial.classList.remove("d-none");
           obtenerBolsa();
 
           let adminMensaje = "";
@@ -153,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tipoUsuarioHeader.innerHTML = "";
           avisosDOM.classList.remove("d-none");
           botonBolsa.classList.add("d-none");
+          mostrarHistorial.classList.add("d-none");
           panelAdminBoton.classList.add("d-none");
           botonEliminarProducto.classList.add("d-none");
           botonEditarPerfil.classList.add("d-none");

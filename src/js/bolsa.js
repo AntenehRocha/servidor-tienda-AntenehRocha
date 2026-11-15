@@ -79,6 +79,12 @@ export function obtenerBolsa() {
 
       let precioTotal = 0;
 
+      const contenedorHistorial = document.querySelector(
+        "#contenedorHistorial",
+      );
+
+      contenedorHistorial.innerHTML = "";
+
       for (const cada_producto of bolsa) {
         precioTotal += cada_producto.precio * cada_producto.cantidad;
 
@@ -89,6 +95,26 @@ export function obtenerBolsa() {
           colorEstado = "text-bg-success";
         } else if (cada_producto.estado === "rechazado") {
           colorEstado = "text-bg-danger";
+        }
+
+        if (
+          cada_producto.estado === "aceptado" ||
+          cada_producto.estado === "rechazado"
+        ) {
+          contenedorHistorial.innerHTML += `
+  <div class="list-group-item border-0 border-bottom d-flex align-items-center gap-3 py-3">
+    <img src="${cada_producto.imagen}" alt="${cada_producto.nombre}"
+      class="rounded-3 border bg-white p-1 flex-shrink-0"
+      style="width: 80px; height: 80px; object-fit: contain;">
+    <div class="flex-grow-1" style="min-width: 0;">
+      <h6 class="mb-1 fw-semibold text-truncate">${cada_producto.nombre}</h6>
+      <p class="mb-2 small text-muted text-truncate">Pedido nº ${cada_producto._id.$oid}</p>
+      <span class="badge text-bg-light border fw-normal">Cantidad: ${cada_producto.cantidad}</span>
+      <span class="badge ${colorEstado} fw-normal ms-1">${cada_producto.estado}</span>
+    </div>
+    <div class="text-end flex-shrink-0 fw-bold fs-5">${cada_producto.precio * cada_producto.cantidad} €</div>
+  </div>
+`;
         }
 
         contenedorBolsa.innerHTML += `
