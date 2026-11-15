@@ -61,7 +61,8 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
             'descripcion' => $producto['descripcion'],
             'stock' => $producto['stock'],
             'cantidad' => $cantidadProducto,
-            'precio' => $producto['precio']
+            'precio' => $producto['precio'],
+            'estado' => 'pendiente'
         ]]]
     );
 

@@ -82,6 +82,15 @@ export function obtenerBolsa() {
       for (const cada_producto of bolsa) {
         precioTotal += cada_producto.precio * cada_producto.cantidad;
 
+        let colorEstado = "text-bg-warning";
+        if (cada_producto.estado === "pendiente") {
+          colorEstado = "text-bg-warning";
+        } else if (cada_producto.estado === "aceptado") {
+          colorEstado = "text-bg-success";
+        } else if (cada_producto.estado === "rechazado") {
+          colorEstado = "text-bg-danger";
+        }
+
         contenedorBolsa.innerHTML += `
   <div class="list-group-item border-0 border-bottom d-flex align-items-center gap-3 py-3">
     <img src="${cada_producto.imagen}" alt="${cada_producto.nombre}"
@@ -95,6 +104,7 @@ export function obtenerBolsa() {
       </p>
       <span class="badge text-bg-light border fw-normal">Cantidad: ${cada_producto.cantidad}</span>
       <span class="badge text-bg-light border fw-normal ms-1">Stock: ${cada_producto.stock}</span>
+      <span class="badge ${colorEstado} fw-normal ms-1">${cada_producto.estado}</span>
     </div>
     <div class="text-end flex-shrink-0 fw-bold fs-5">${cada_producto.precio * cada_producto.cantidad} €</div>
   </div>
