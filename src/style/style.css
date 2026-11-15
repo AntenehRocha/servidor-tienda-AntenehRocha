@@ -87,6 +87,11 @@
   --bs-btn-border-color: var(--color-borde-fuerte);
 }
 
+/* si todas las opciones de un desplegable estan ocultas (d-none), escondo el desplegable entero */
+.menu-header:not(:has(.dropdown-item:not(.d-none))) {
+  display: none;
+}
+
 .logo-texto {
   font-size: 22px;
   letter-spacing: -0.5px;

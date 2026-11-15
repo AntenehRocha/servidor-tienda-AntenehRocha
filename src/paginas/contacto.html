@@ -40,32 +40,68 @@
               Registrarse / Login
             </button>
 
-            <div id="tipoUsuario"></div>
-            <div id="bienvenidaHeader"></div>
+            <div class="dropdown dropdown-center menu-header">
+              <button type="button" class="btn btn-outline-primary dropdown-toggle w-100" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Admin
+              </button>
+              <ul class="dropdown-menu text-center shadow-sm">
+                <li>
+                  <button type="button" class="dropdown-item d-none" id="mostrarPanelAdmin" data-bs-toggle="modal"
+                    data-bs-target="#modalAdmin">
+                    Crear producto
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item d-none" id="mostrarPedidos" data-bs-toggle="modal"
+                    data-bs-target="#modalPedidos">
+                    Pedidos
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item text-danger d-none" id="mostrarEliminarProducto"
+                    data-bs-toggle="modal" data-bs-target="#modalEliminarProducto">
+                    Eliminar producto
+                  </button>
+                </li>
+              </ul>
+            </div>
 
-            <button type="button" class="btn btn-outline-danger d-none" id="cerrarSesionBoton">
-              Cerrar sesion
-            </button>
-
-            <button class="btn btn-outline-primary d-none" id="mostrarPanelAdmin" data-bs-toggle="modal"
-              data-bs-target="#modalAdmin">
-              Panel Admin
-            </button>
-
-            <button class="btn btn-outline-danger d-none" id="mostrarEliminarProducto" data-bs-toggle="modal"
-              data-bs-target="#modalEliminarProducto">
-              Eliminar producto
-            </button>
-
-            <button class="btn btn-outline-primary d-none" id="mostrarPedidos" data-bs-toggle="modal"
-              data-bs-target="#modalPedidos">
-              Pedidos
-            </button>
-
-            <button class="btn btn-outline-primary d-none" id="mostrarHistorial" data-bs-toggle="modal"
-              data-bs-target="#modalHistorial">
-              Mis pedidos
-            </button>
+            <div class="dropdown dropdown-center menu-header">
+              <button type="button" class="btn btn-outline-primary dropdown-toggle w-100" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Mi cuenta
+              </button>
+              <ul class="dropdown-menu text-center shadow-sm">
+                <li class="d-flex flex-column gap-2 px-3 py-2">
+                  <div id="bienvenidaHeader"></div>
+                  <div id="tipoUsuario"></div>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item d-none" id="mostrarHistorial" data-bs-toggle="modal"
+                    data-bs-target="#modalHistorial">
+                    Mis pedidos
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item d-none" id="botonEditarPerfil" data-bs-toggle="modal"
+                    data-bs-target="#contenedorEditarPerfil">
+                    Editar perfil
+                  </button>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item text-danger d-none" id="cerrarSesionBoton">
+                    Cerrar sesión
+                  </button>
+                </li>
+              </ul>
+            </div>
 
             <button class="btn btn-primary position-relative d-none" id="botonBolsa" data-bs-toggle="modal"
               data-bs-target="#modalBolsa">
@@ -74,10 +110,6 @@
                 id="badgeBolsa">
                 0
               </span>
-            </button>
-            <button class="btn btn-outline-primary d-none ms-2" id="botonEditarPerfil" data-bs-toggle="modal"
-              data-bs-target="#contenedorEditarPerfil">
-              Editar perfil
             </button>
           </div>
         </div>

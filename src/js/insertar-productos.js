@@ -50,8 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <article class="card h-100 rounded-3 overflow-hidden producto-card">
               <img src="${cada_producto.imagen}" class="card-img-top bg-light object-fit-contain p-3" alt="${cada_producto.nombre}" style="height: 180px;">
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title fs-6 fw-semibold">${cada_producto.nombre}</h5>
-                <p class="card-text text-muted small">${cada_producto.descripcion}</p>
+                <h5 class="card-title fs-6 fw-semibold mb-1">${cada_producto.nombre}</h5>
+                <p class="fs-5 fw-bold text-primary mb-2">${cada_producto.precio} €</p>
+                <p class="card-text text-muted small" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${cada_producto.descripcion}</p>
                 <div class="mt-auto">
                     <button class="btn btn-outline-primary w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#tablaProducto" data-nombre="${cada_producto.nombre}" data-imagen="${cada_producto.imagen}" data-desc="${cada_producto.descripcion}" data-stock="${cada_producto.stock}" data-precio="${cada_producto.precio}" data-id="${cada_producto._id}"> Ver detalles </button>
                 </div>
