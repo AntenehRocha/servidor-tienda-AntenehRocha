@@ -92,8 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
           if (datos.estado === "correcto") {
             location.reload();
           } else {
-            const avisosDOM = document.querySelector("#avisosDOM");
-            avisosDOM.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
+            const avisosAdmin = document.querySelector("#avisosAdmin");
+            avisosAdmin.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
             console.warn("Respuesta del servidor:", datos.mensaje);
           }
         });
@@ -157,8 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (datos.estado === "correcto") {
           location.reload();
         } else {
-          const avisosDOM = document.querySelector("#avisosDOM");
-          avisosDOM.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
+          const avisosEliminarProducto = document.querySelector("#avisosEliminarProducto");
+          avisosEliminarProducto.innerHTML = `<div class="alert alert-danger" role="alert"> ${datos.mensaje} </div>`;
         }
       });
   });
