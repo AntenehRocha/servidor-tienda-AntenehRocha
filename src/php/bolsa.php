@@ -67,6 +67,14 @@ if (isset($_SESSION['usuarioId']) && $_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     if ($resultado->getModifiedCount() === 1) {
+
+        // $producto['stock'] -= $cantidadProducto;
+        $coleccionInventario->updateOne(
+            ['_id' => new ObjectId($idProducto)],
+            // ['$set' => ['stock' => $producto['stock']]]
+            ['$inc' => ['stock' => -$cantidadProducto]]
+        );
+
         echo json_encode(['estado' => 'correcto', 'mensaje' => 'Producto añadido a la bolsa']);
     } else {
         echo json_encode(['estado' => 'error', 'mensaje' => 'No se pudo añadir el producto']);
